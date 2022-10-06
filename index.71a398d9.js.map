@@ -1,0 +1,1 @@
+{"mappings":"AACAA,QAAQC,IAAI","sources":["src/js/kay.js"],"sourcesContent":["const KEY = `5d44c33850258a6ea050e461474b1468`;\nconsole.log(`ПРАЦЮЄ`);\n"],"names":["console","log"],"version":3,"file":"index.71a398d9.js.map"}
