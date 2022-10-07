@@ -1,0 +1,47 @@
+footer {
+    background-color: rgb(247, 247, 247);
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+
+}
+
+.footer {
+    @media screen and (min-width: 768px) {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+}
+
+.footer__icon {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.footer__txt {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #545454;
+
+    @media screen and (min-width: 768px) {
+        font-size: 16px;
+        line-height: 19px;
+    }
+}
+
+.footer__box {
+    display: flex;
+    @media screen and (max-width: 767px) {
+        
+        justify-content: center;
+        margin-top: 10px;
+    }
+}
+
+.js-team {
+    text-decoration: underline;
+}
