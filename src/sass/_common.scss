@@ -1,5 +1,10 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
+:root {
+  --accent-color: #ff6b08;
+  --main-cubic: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -36,4 +41,16 @@ a {
 }
 button {
   text-transform: uppercase;
+}
+.visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
 }
