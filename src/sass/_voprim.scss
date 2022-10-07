@@ -20,7 +20,7 @@
     border-radius: 5px;
     overflow: hidden;
     cursor: pointer;
-    transition: var(--main-cubic);
+    transition: box-shadow 250ms var(--main-cubic);
 
     &:hover {
         box-shadow: 7px -7px 21px rgba(153, 153, 152, 0.6);
@@ -51,7 +51,7 @@
 .films__img {
     height: 464px;
     opacity: 1;
-    transition: var(--main-cubic);
+    transition: box-shadow 250ms var(--main-cubic);
 
     &>img {
         height: 100%;
@@ -89,6 +89,7 @@
     color: var(--accent-color);
 }
 
+/*
 .films__data::before {
     content: '';
     display: inline-block;
@@ -97,4 +98,11 @@
     margin-left: 5px;
     margin-right: 5px;
     background-color: var(--accent-color);
+}
+*/
+
+.films__sep {
+    margin-left: 5px;
+    margin-right: 5px;
+    color: var(--accent-color);
 }

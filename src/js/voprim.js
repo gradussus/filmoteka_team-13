@@ -20,11 +20,12 @@ function makeFilmsMarkup(films) {
                 <div class="films__description">
                   <p class="films__title">${title}</p>
                   <div class="films__meta">
-                    <p class="films__genres">${filmGenres || 'Action'}</p>
-                    <p class="films__data">${(release_date || '2022').slice(
+                    <span class="films__genres">${filmGenres || 'Action'}</span>
+                    <span class="films__sep">|</span>
+                    <span class="films__data">${(release_date || '2022').slice(
                       0,
                       4
-                    )}</p>
+                    )}</span>
                   </div>
                 </div>
             </li>`;
