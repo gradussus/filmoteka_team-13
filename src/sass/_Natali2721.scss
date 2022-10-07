@@ -46,4 +46,10 @@ footer {
 
 .js-team {
     text-decoration: underline;
+    text-transform: none;
+}
+.footer__team-btn {
+    border: none;
+    cursor: pointer;
+    background-color: inherit;
 }
