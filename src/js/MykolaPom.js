@@ -78,9 +78,9 @@ export default class TrendingMovies {
     let cuttedName;
     cuttedName = string.length <= 35 ? string : string.slice(0, 35) + '...';
     return cuttedName;
-  };
+  }
 
-  fetchTotlaResults() {
+  fetchTotalResults() {
     return fetch(
       `${BASE_URL}trending/movie/day?api_key=${KEY_API}&page=${this.page}&language=en-US`
     )
