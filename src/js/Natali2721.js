@@ -19,6 +19,7 @@ function onEscapeClick(event) {
 }
 
 document.addEventListener('click', onBackdropClick);
+document.addEventListener('click', onSpinerBackdropClick);
 
 function onBackdropClick(event) {
   //console.log('event');
@@ -27,4 +28,12 @@ function onBackdropClick(event) {
     refs.backdrop.classList.add('is-hidden');
     document.removeEventListener('click', onBackdropClick);
   }
+}
+
+function onSpinerBackdropClick(event) {
+  //console.log('event');
+  //console.log(event);
+
+  refs.spinerBackdrop.classList.add('is-hidden');
+  document.removeEventListener('click', onSpinerBackdropClick);
 }
