@@ -28,11 +28,4 @@ function onBackdropClick(event) {
     document.removeEventListener('click', onBackdropClick);
   }
 }
-
-function onSpinerBackdropClick(event) {
-  //console.log('event');
-  //console.log(event);
-
-  refs.spinerBackdrop.classList.add('is-hidden');
-  document.removeEventListener('click', onSpinerBackdropClick);
-}
+export { onBackdropClick, onEscapeClick };
