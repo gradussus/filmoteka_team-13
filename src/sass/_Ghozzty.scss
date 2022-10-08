@@ -1,0 +1,27 @@
+// 
+.tui-pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tui-page-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    margin: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    
+    font-weight: bolder;
+  }
+  
+  .tui-pagination .tui-is-selected, .tui-pagination strong {
+    color: #fff;
+    
+    background: #FF6B08;
+   
+  }
+  
