@@ -1,0 +1,157 @@
+// Footer modal
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+.footer-backdrop {
+  transition: opacity 450ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 3;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.2);
+
+  opacity: 1;
+
+  visibility: visible;
+  transition: visibility 450ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 450ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+.footer-modal {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  padding: 35px 20px;
+
+  max-width: 300px;
+  max-height: calc(100vh - 30px);
+
+  background-color: #fff;
+  background-image: linear-gradient(135deg, rgb(11, 11, 11, 0.4), rgb(96, 5, 5, 0.4));
+  box-shadow: 0px 8px 30px rgba(30, 16, 20, 0.1);
+
+  overflow-y:auto;
+
+  @media screen and (min-width: 768px) {
+    max-width: 600px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    max-width: 950px;
+  }
+}
+
+.footer-modal__closeBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+}
+
+.close-icon {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.team-tittle {
+  text-align: center;
+  margin-bottom: 20px;
+
+    @media screen and (min-width: 768px) {
+        font-size: 35px;
+}
+}
+
+.developer__list {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+.developer__item {
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+
+  margin-bottom: 20px;
+
+  @media screen and (min-width: 768px) {
+    flex-basis: calc((100% - 2 * 20px) / 2);
+    margin: 10px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    flex-basis: calc((100% - 5 * 20px) / 5);
+    margin: 10px;
+  }
+}
+
+.developers__photo {
+  display: inline-block;
+  width: 105px;
+  height: 100px;
+
+  border-radius: 50%;
+
+  margin-bottom: 5px;
+}
+
+.developer__main-info {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+
+  margin-bottom: 5px;
+
+  @media screen and (min-width: 1200px) {
+    display: block;
+  }
+}
+
+.developer__social {
+  margin-right: 5px;
+}
+
+.developer__social--Git{
+@media screen and (min-width: 1200px) {
+    width: 30px;
+    height: 30px;
+}
+}
+
+.developer__name {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.developer__role {
+  font-size: 16px;
+  font-style: italic;
+  margin-bottom: 5px;
+}
+
+.developer__description {
+  font-size: 12px;
+}
