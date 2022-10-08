@@ -19,7 +19,6 @@ function onEscapeClick(event) {
 }
 
 document.addEventListener('click', onBackdropClick);
-document.addEventListener('click', onSpinerBackdropClick);
 
 function onBackdropClick(event) {
   //console.log('event');
