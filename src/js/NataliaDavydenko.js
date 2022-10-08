@@ -9,7 +9,7 @@ refs.openFooterModalBtn.addEventListener('click', e => {
   refs.modal.classList.remove('is-hidden');
 });
 
-refs.closeBtn.addEventListener("click", e => {
-    e.preventDefault();
-    refs.modal.classList.add('is-hidden');
-})
+refs.closeBtn.addEventListener('click', e => {
+  e.preventDefault();
+  refs.modal.classList.add('is-hidden');
+});
