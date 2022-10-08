@@ -97,4 +97,8 @@ export default class TrendingMovies {
   setPage(value) {
     this.page = value;
   }
-}
+
+  setQuery(newQuery) {
+    this.query = newQuery;
+  };
+};
