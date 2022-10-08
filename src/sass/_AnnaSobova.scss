@@ -1,17 +1,49 @@
-.header__container{
+.header{
     background-image: url('../images/abstract-background-with-red-lines\ 1.jpg');
     background-color: rgb(0, 0, 0, 0.5);
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size:cover;
 
     max-width: 1600px;
+    height: 216px;
+
 }
 
+.header__navigation{
+    display: flex;
+  margin-right: 32px;
+  margin-left: 32px;
+}
+.header__navigation-logo{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 40px;
+    margin-bottom: 140px;
 
+    
+    
+}
 .header__container{ 
    @media screen and (min-width: 768px) {
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
+    
 } 
+}
+
+.header__logo-name{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 35px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #FFFFFF;
+}
+.header__logo-icon{
+    fill: #FFFFFF;
 }
