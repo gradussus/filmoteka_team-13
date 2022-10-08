@@ -2,16 +2,17 @@
 // расчет на то, что на списке <ul class="films"></ul> - класс называется films
 
 // это список ul в главной секции
-const filmsListRef = document.querySelector('.films');
+import { refs } from './refs';
+// import TrendingMovies from './MykolaPom';
 
 export default function renderFilmsMarkup(films) {
-  filmsListRef.innerHTML = makeFilmsMarkup(films);
+  refs.filmsListRef.innerHTML = makeFilmsMarkup(films);
 }
 
-function makeFilmsMarkup(films) {
-  return films
+function renderFilmsMarkup(films) {
+  films
     .map(({ poster_path, title, release_date, genres, id }) => {
-      let filmGenres = genres.map(({ name }) => name).join(', ');
+      // let filmGenres = genres.map(({ name }) => name).join(', ');
 
       return `<li class="films__item" data-id=${id}>
                 <div class="films__img">
@@ -20,7 +21,7 @@ function makeFilmsMarkup(films) {
                 <div class="films__description">
                   <p class="films__title">${title}</p>
                   <div class="films__meta">
-                    <span class="films__genres">${filmGenres || 'Action'}</span>
+                    <span class="films__genres">${genres || 'Action'}</span>
                     <span class="films__sep">|</span>
                     <span class="films__data">${(release_date || '2022').slice(
                       0,
@@ -30,5 +31,5 @@ function makeFilmsMarkup(films) {
                 </div>
             </li>`;
     })
-    .join('');
+    .forEach(c => refs.gallery.insertAdjacentHTML('beforeend', c));
 }
