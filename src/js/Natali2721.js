@@ -11,9 +11,20 @@ import { refs } from './refs';
 document.addEventListener('keydown', onEscapeClick);
 
 function onEscapeClick(event) {
-  console.log('esc');
+  //console.log('esc');
   if (event.code == 'Escape') {
     refs.backdrop.classList.add('is-hidden');
     document.removeEventListener('keydown', onEscapeClick);
+  }
+}
+
+document.addEventListener('click', onBackdropClick);
+
+function onBackdropClick(event) {
+  //console.log('event');
+  //console.log(event);
+  if (event.target == refs.backdrop) {
+    refs.backdrop.classList.add('is-hidden');
+    document.removeEventListener('click', onBackdropClick);
   }
 }
