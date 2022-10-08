@@ -28,4 +28,5 @@ function onBackdropClick(event) {
     document.removeEventListener('click', onBackdropClick);
   }
 }
+
 export { onBackdropClick, onEscapeClick };
