@@ -6,3 +6,12 @@
 
     max-width: 1600px;
 }
+
+
+.header__container{ 
+   @media screen and (min-width: 768px) {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+} 
+}
