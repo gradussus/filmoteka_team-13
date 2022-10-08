@@ -10,15 +10,17 @@
 }
 
 .header__navigation{
-    display: flex;
-  margin-right: 32px;
-  margin-left: 32px;
+    
+  display: flex;
+  align-items: center;
+  
 }
 .header__navigation-logo{
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     margin-top: 40px;
     margin-bottom: 140px;
+    padding-right: 236px;
 
     
     
@@ -28,6 +30,8 @@
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
+    margin-right: 32px;
+    margin-left: 32px;
     
 } 
 }
@@ -46,4 +50,25 @@
 }
 .header__logo-icon{
     fill: #FFFFFF;
+}
+.header__navigation-button{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    margin-bottom: 140px;
+    padding-left: 230px;
+}
+
+.header__navigation-link{
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 14px;
+
+display: flex;
+
+text-transform: uppercase;
+
+color: #FFFFFF;
 }
