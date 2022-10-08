@@ -18,7 +18,7 @@ export default class TrendingMovies {
       });
   }
   // asdfasdf
-  fetchTotalResults() {
+  fetchTotlaResults() {
     const URL = `${BASE_URL}api_key=${KEY_API}&page=${this.page}&language=en-US`;
 
     return fetch(URL)
