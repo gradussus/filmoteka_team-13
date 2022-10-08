@@ -5,10 +5,16 @@
     background-size:cover;
 
     max-width: 1600px;
-    height: 216px;
-
+    height: 215px;
 }
-
+.header__container{ 
+  
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin-right: 32px;
+    margin-left: 32px;
+}
 .header__navigation{
     
   display: flex;
@@ -20,20 +26,8 @@
     justify-content: flex-start;
     margin-top: 40px;
     margin-bottom: 140px;
-    padding-right: 236px;
+    padding-right: 235px;
 
-    
-    
-}
-.header__container{ 
-   @media screen and (min-width: 768px) {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    margin-right: 32px;
-    margin-left: 32px;
-    
-} 
 }
 
 .header__logo-name{
@@ -51,6 +45,39 @@
 .header__logo-icon{
     fill: #FFFFFF;
 }
+
+// form
+.header__form{
+  display: flex;
+  align-items: center;
+  
+}
+.header__input{
+ width: 375px;
+ height: 20px;
+}
+
+.header__input{
+ font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 16px;
+display: flex;
+align-items: center;
+color: #FFFFFF;
+}
+
+.header__search-button{
+ 
+ border-color: #FFFFFF;
+ background-color: transparent;
+}
+.header__logo-search{
+    background-color: transparent;
+    fill: #FFFFFF;
+}
+// navigation button 
 .header__navigation-button{
     display: flex;
     justify-content: space-between;
@@ -67,8 +94,13 @@ font-size: 12px;
 line-height: 14px;
 
 display: flex;
-
 text-transform: uppercase;
-
 color: #FFFFFF;
+}
+
+.header__navigation-item{
+    margin-right: 40px;
+}
+.header__navigation-item:not(:last-child){
+    margin-right: 40px;
 }
