@@ -6,10 +6,6 @@ import { refs } from './refs';
 // import TrendingMovies from './MykolaPom';
 
 export default function renderFilmsMarkup(films) {
-  refs.filmsListRef.innerHTML = makeFilmsMarkup(films);
-}
-
-function renderFilmsMarkup(films) {
   films
     .map(({ poster_path, title, release_date, genres, id }) => {
       // let filmGenres = genres.map(({ name }) => name).join(', ');
