@@ -1,4 +1,4 @@
-import './js/kay.js';
+import './js/key.js';
 import './js/Alexandr';
 import './js/AnnaSobova';
 import './js/darinacat87';
