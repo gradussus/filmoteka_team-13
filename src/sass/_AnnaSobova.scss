@@ -1,66 +1,74 @@
-.header {
-  background-image: url('../images/abstract-background-with-red-lines\ 1.jpg');
-  // background-color: rgb(0, 0, 0, 0.5);
-  background-repeat: no-repeat;
-  background-size: cover;
+.header{
+    background-image: url('../images/abstract-background-with-red-lines\ 1.jpg');
+    background-color: rgb(0, 0, 0, 0.5);
+    background-repeat: no-repeat;
+    background-size:cover;
 
-  height: 216px;
+    max-width: 1600px;
+    height: 216px;
+
 }
 
-.header__navigation {
+.header__navigation{
+    
   display: flex;
   align-items: center;
+  
 }
-.header__navigation-logo {
-  display: flex;
-  justify-content: flex-start;
-  margin-top: 40px;
-  margin-bottom: 140px;
-  padding-right: 236px;
+.header__navigation-logo{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 40px;
+    margin-bottom: 140px;
+    padding-right: 236px;
+
+    
+    
 }
-.header__container {
-  @media screen and (min-width: 768px) {
+.header__container{ 
+   @media screen and (min-width: 768px) {
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
     margin-right: 32px;
     margin-left: 32px;
-  }
+    
+} 
 }
 
-.header__logo-name {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 30px;
-  line-height: 35px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-
-  color: #ffffff;
+.header__logo-name{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 35px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #FFFFFF;
 }
-.header__logo-icon {
-  fill: #ffffff;
+.header__logo-icon{
+    fill: #FFFFFF;
 }
-.header__navigation-button {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 40px;
-  margin-bottom: 140px;
-  padding-left: 230px;
+.header__navigation-button{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    margin-bottom: 140px;
+    padding-left: 230px;
 }
 
-.header__navigation-link {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 14px;
+.header__navigation-link{
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 14px;
 
-  display: flex;
+display: flex;
 
-  text-transform: uppercase;
+text-transform: uppercase;
 
-  color: #ffffff;
+color: #FFFFFF;
 }
