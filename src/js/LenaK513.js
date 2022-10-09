@@ -38,7 +38,23 @@ function findCurrentFilm(name) {
   return filmsSet.find(option => option.original_title === name);
 }
 //
+function checkClick(e) {
+  const element = e.target.nodeName;
+  if (
+    element === 'DIV' ||
+    element === 'IMG' ||
+    element === 'P' ||
+    element === 'SPAN'
+  ) {
+    return true;
+  }
+  return false;
+}
+
 function onOpenModal(e) {
+   if (!checkClick(e)) {
+    return;
+  }
   refs.backdropOneMovie.classList.remove('is-hidden');
   document.body.classList.add('modal-open');
 
