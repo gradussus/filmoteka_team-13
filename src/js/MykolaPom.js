@@ -54,30 +54,24 @@ export default class TrendingMovies {
       });
   }
 
-  getGenreName(genres, values) {
-    const genreArray = [];
-    let genreList = '';
-
-    values.forEach(value => {
-      genres.find(genre => {
-        if (value === genre.id) {
-          genreArray.push(genre.name);
-          if (genreArray.length > 3) {
-            genreArray.splice(2, 2, langText('Other'));
-            return;
-          }
-        }
+  getGenreData() {
+    return this.fetchMovie().then(data => {
+      return this.fetchGenresIds().then(genresList => {
+        return data.map(movie => ({
+          ...movie,
+          release_date: movie.release_date.split('-')[0],
+          genres: movie.genre_ids
+            .map(id => genresList.filter(el => el.id === id))
+            .flat(),
+        }));
       });
     });
-    genreList = genreArray.join(', ');
-    return genreList;
   }
 
-  getCuttedName(string) {
-    let cuttedName;
-    cuttedName = string.length <= 35 ? string : string.slice(0, 35) + '...';
-    return cuttedName;
-  }
+  // getGenreName(genres, values) {
+  //   const genreArray = [];
+  //   let genreList = '';
+
 
 
   // fetchTotalResults() {
