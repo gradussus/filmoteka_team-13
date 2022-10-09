@@ -5,6 +5,7 @@ const refs = {
   filmsListRef: document.querySelector('.films'),
   gallery: document.querySelector('.gallery__set'),
   container: document.getElementById('pagination'),
+  galleryGenreItem: document.querySelector('.film__genres'),
 };
 
 export { refs };
