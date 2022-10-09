@@ -37,9 +37,10 @@ function getGenres(genre_ids) {
   if (genresArr.length === 0) {
     return 'No info';
   }
-  console.log(genresArr);
+  // console.log(genresArr);
   return genresArr.join(', ');
 }
+// console.log(getGenres(35));
 // функция отрисовки жанров
 
 // export function renderGenres(renderGenresFilms) {
