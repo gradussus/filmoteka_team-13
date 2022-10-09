@@ -1,18 +1,10 @@
-// card film template   <li> in <div> container
-// расчет на то, что на списке <ul class="films"></ul> - класс называется films
+import { refs } from './refs';
+import TrendingMovies from './MykolaPom';
 
-// это список ul в главной секции
-const filmsListRef = document.querySelector('.films');
-
-export default function renderFilmsMarkup(films) {
-  filmsListRef.innerHTML = makeFilmsMarkup(films);
-}
-
-function makeFilmsMarkup(films) {
-  return films
-    .map(({ poster_path, title, release_date, genres, id }) => {
-      let filmGenres = genres.map(({ name }) => name).join(', ');
-
+// функция отрисовки топ фильмов
+export function renderFilmsMarkup(films) {
+  films
+    .map(({ poster_path, title, release_date, id }) => {
       return `<li class="films__item" data-id=${id}>
                 <div class="films__img">
                     <img src=https://image.tmdb.org/t/p/original${poster_path} alt="${title}" loading="lazy">
@@ -20,9 +12,9 @@ function makeFilmsMarkup(films) {
                 <div class="films__description">
                   <p class="films__title">${title}</p>
                   <div class="films__meta">
-                    <span class="films__genres">${filmGenres || 'Action'}</span>
+                    <span class="films__genres">Action</span>
                     <span class="films__sep">|</span>
-                    <span class="films__data">${(release_date || '2022').slice(
+                    <span class="films__data">${(release_date || '2023').slice(
                       0,
                       4
                     )}</span>
@@ -30,5 +22,37 @@ function makeFilmsMarkup(films) {
                 </div>
             </li>`;
     })
-    .join('');
+    .forEach(c => refs.gallery.insertAdjacentHTML('beforeend', c));
+}
+
+// функция отрисовки жанров
+
+export function renderGenres(renderGenresFilms) {
+  let genreString;
+  renderGenresFilms.map(film => {
+    const filmGenres = film.genre_ids;
+    let array = [];
+
+    //console.log('filmGenres', filmGenres);
+    filmGenres.map(genre => {
+      const filmGenre = localStorage.getItem(genre);
+      array.push(filmGenre);
+      genreString = array.join(', ');
+    });
+  });
+  //refs.galleryGenreItem.textContent = 777;
+  return genreString;
+}
+
+// Функция записи жанров в локалсторедж
+export async function getGenres() {
+  const trendingMovies = new TrendingMovies();
+  try {
+    const result = await trendingMovies.fetchGenresIds();
+    for (const genre of result) {
+      localStorage.setItem(`${genre.id}`, `${genre.name}`);
+    }
+  } catch (error) {
+    console.log(error);
+  }
 }

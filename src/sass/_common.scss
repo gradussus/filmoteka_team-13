@@ -3,6 +3,11 @@
 :root {
   --accent-color: #ff6b08;
   --main-cubic: cubic-bezier(0.4, 0, 0.2, 1);
+  --secondary-text-color: #ffffff;
+  --main-background-color: #ffffff;
+  --third-text-color: #ff6b01;
+  --light-linear-gradient: linear-gradient(rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56));
 }
 
 html {
@@ -36,6 +41,7 @@ body {
 a {
   text-decoration: none;
 }
+
 * {
   font-family: 'Roboto', sans-serif;
 }
@@ -53,4 +59,21 @@ button {
   overflow: hidden;
   border: 0;
   clip: rect(0 0 0 0);
+}
+
+.container {
+  width: 310px;
+
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (min-width: 768px) {
+    width: 734px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 989px;
+  }
 }
