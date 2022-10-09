@@ -45,5 +45,5 @@ async function films() {
   //console.log(3);
   spinerClose();
 }
-films();
+//films();
 export { onBackdropClick, onEscapeClick };
