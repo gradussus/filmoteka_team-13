@@ -6,7 +6,6 @@
   
   max-width: 1600px;
   height: 215px;
-  
 }
 .header-film__container{ 
   flex-wrap: nowrap;
@@ -17,14 +16,15 @@
 
 .header-film__main-wraper{
   padding-top: 40px;
-  // display: flex;
+  display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.header-film__logo{
+.header-film__logo-link{
   display: flex;
   align-items:flex-start;
   justify-content: center;
+  flex-direction: row-reverse;
 }
 .header-film__logo-name{
   font-family: 'Roboto';
@@ -38,40 +38,74 @@
   
   color: #FFFFFF;
 }
+
+/////heder logo 
 .header-film__logo-icon{
     fill: #FFFFFF;
+    padding-right:8px;
+    cursor: pointer;
   }
+
+ 
+//////////
+  // navigation
 .header__navigation{
   
 display: flex;
 align-items: center;
-
 }
+
 .header__navigation-button{
     display: flex;
     justify-content: space-between;
     
   }
+  .header__navigation-item{
+      margin-right: 40px;
+    }
+    .header__navigation-item:nth-child(2){
+      margin-right: 0;
+    }
+ .header__navigation-link{
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 14px;
 
-
+display: flex;
+text-transform: uppercase;
+color: #FFFFFF;
+}
 
 /// search div
 .header-film__search-wraper{
   margin: auto;
-  margin-top: 48px;
-
-}
-.header-film__search{
-  margin: auto;
+  margin-top: 40px;
   position: relative;
-  width: 280px
-  
+  width: 380px
 }
-.header-film__warning-msg{
-   margin-top: 16px;
+.header__form{
    display: flex;
+   position: relative;
+   margin: auto;
+  }
+
+
+.header-film__warning-msg{
+   display: flex;
+   justify-content: center;
+   text-align: center;
    align-items: center;
-   color: #FF001B;
+   margin-top: 16px;
+   margin-bottom: 45px;
+   
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.14;
+  color: #FF001B;
 }
 
 ////////input form
@@ -97,109 +131,13 @@ align-items: center;
   position: absolute;
   top: 5px;
   right: 0;
+  background-color: transparent;
+  fill: #FFFFFF;
 }
+// //////
 
 
 
 
 
 
-
-
-// .header__navigation-logo{
-//   display: flex;
-//   justify-content: flex-start;
-//   margin-top: 40px;
-//   margin-bottom: 140px;
-//   padding-right: 235px;
-
-// }
-
-// .header__logo-name{
-//   font-family: 'Roboto';
-//   font-style: normal;
-//   font-weight: 500;
-//   font-size: 30px;
-//   line-height: 35px;
-//   display: flex;
-//   align-items: center;
-//   text-align: center;
-  
-//   color: #FFFFFF;
-// }
-// .header__logo-icon{
-//   fill: #FFFFFF;
-// }
-
-// ///////
-
-// .header__input{
-// width: 375px;
-// height: 20px;
-// }
-
-// // .header__input{
-// // font-family: 'Roboto';
-// // font-style: normal;
-// // font-weight: 400;
-// // font-size: 14px;
-// // line-height: 16px;
-// // display: flex;
-// // align-items: center;
-// // color: #FFFFFF;
-// // }
-
-// .header__search-button{
-
-// border-color: #FFFFFF;
-// background-color: transparent;
-// }
-// .header__logo-search{
-//   background-color: transparent;
-//   fill: #FFFFFF;
-// }
-
-// .header__navigation-button{
-//   display: flex;
-//   justify-content: space-between;
-//   margin-top: 40px;
-//   margin-bottom: 140px;
-//   padding-left: 230px;
-// }
-
-// .header__navigation-link{
-// font-family: 'Roboto';
-// font-style: normal;
-// font-weight: 500;
-// font-size: 12px;
-// line-height: 14px;
-
-// display: flex;
-// text-transform: uppercase;
-// color: #FFFFFF;
-// }
-
-// .header__navigation-item{
-//   margin-right: 40px;
-// }
-// .header__navigation-item:not(:last-child){
-//   margin-right: 40px;
-// }
-// ////////////
-// .header__form-wrap{
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-// }
-// .header__form{
-//   position: relative;
-// }
-// .header__form button {
-//   position: absolute;
-//     bottom: 5px;
-//     right: -5px;
-//     border: none;
-//     background-color: inherit;
-//     cursor: pointer;
-
-// }
