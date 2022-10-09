@@ -4,14 +4,15 @@
   background-repeat: no-repeat;
   background-size:cover;
   
-  max-width: 1600px;
   height: 215px;
 }
 .header-film__container{ 
   flex-wrap: nowrap;
   justify-content: center;
-  margin-right: 32px;
-  margin-left: 32px;
+  padding-right: 32px;
+  padding-left: 32px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .header-film__main-wraper{
