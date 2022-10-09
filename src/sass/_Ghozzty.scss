@@ -6,6 +6,7 @@
   }
   
   .tui-page-btn{
+    color: black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,6 +17,17 @@
     cursor: pointer;
     
     font-weight: bolder;
+
+    transition: background-color 250ms linear;
+    &:hover{
+      width: 40px;
+      height: 40px;
+      margin: 20px;
+      border-radius: 5px;
+      color: #fff;
+    
+    background: #FF6B08;
+    }
   }
   
   .tui-pagination .tui-is-selected, .tui-pagination strong {
