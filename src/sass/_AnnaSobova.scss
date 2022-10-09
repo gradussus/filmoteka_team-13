@@ -126,6 +126,7 @@ align-items: center;
 
 ////////input form
 .header-film__input {
+  position: relative;
   width: 100%;
   border: none;
   border-bottom: 0.5px solid #fff;
@@ -140,7 +141,7 @@ align-items: center;
   // top: 5px;
   // right: 0;
   // background-color: transparent;
-  fill: #FFFFFF;
+  // fill: #FFFFFF;
   
 }
 // #icon-search{
@@ -148,6 +149,10 @@ align-items: center;
 //   fill: #ffffff;
 // }
 
+.header__search-icon{
+  position: absolute;
+  right: 0px;
+}
 
 .header-film__warning-msg{
    display: flex;
