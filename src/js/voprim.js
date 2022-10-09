@@ -14,7 +14,10 @@ export function renderFilmsMarkup(films) {
                   <div class="films__meta">
                     <span class="films__genres">Action</span>
                     <span class="films__sep">|</span>
-                    <span class="films__data">${(release_date || '2023').slice(0, 4)}</span>
+                    <span class="films__data">${(release_date || '2023').slice(
+                      0,
+                      4
+                    )}</span>
                   </div>
                 </div>
             </li>`;
@@ -32,19 +35,9 @@ export function renderGenres(renderGenresFilms) {
 
     //console.log('filmGenres', filmGenres);
     filmGenres.map(genre => {
-      if (filmGenres.length < 3) {
-        const filmGenre = localStorage.getItem(genre);
-        array.push(filmGenre);
-        genreString = array.join(', ');
-      }
-
-      if (filmGenres.length >= 3) {
-        const filmGenre = localStorage.getItem(genre);
-        array.push(filmGenre);
-        let genreArray = array.slice(0, 2);
-        genreArray.push('інші');
-        genreString = genreArray.join(', ');
-      }
+      const filmGenre = localStorage.getItem(genre);
+      array.push(filmGenre);
+      genreString = array.join(', ');
     });
   });
   //refs.galleryGenreItem.textContent = 777;
