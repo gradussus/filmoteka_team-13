@@ -23,7 +23,7 @@ export function renderFilmsMarkup(films) {
     })
     .forEach(c => refs.gallery.insertAdjacentHTML('beforeend', c));
 }
-function getGenres(genre_ids) {
+export function getGenres(genre_ids) {
   const genres = JSON.parse(localStorage.getItem('genres'));
   const genresArr = [];
 
@@ -40,7 +40,7 @@ function getGenres(genre_ids) {
   // console.log(genresArr);
   return genresArr.join(', ');
 }
-// console.log(getGenres(35));
+
 // функция отрисовки жанров
 
 // export function renderGenres(renderGenresFilms) {

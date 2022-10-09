@@ -41,22 +41,19 @@ let options = {
 
 function createStartList() {
   fetchGenres().then(({ genres }) => {
-    // console.log(genres);
     const arr = [...genres];
     localStorage.setItem('genres', JSON.stringify(arr));
-    // console.log(JSON.stringify(arr));
   });
 
   trendingMovies
     .fetchTrendingMovies()
     .then(data => {
       renderFilmsMarkup(data);
-      // созд паг
+      // create pag
       options.totalItems = trendingMovies.getResults();
       createPagination();
       //localStor
       setToLocacStorageAnswer(data);
-      console.log(data);
     })
     .catch(error => console.log(error));
 }

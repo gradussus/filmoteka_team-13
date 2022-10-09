@@ -1,6 +1,7 @@
 import { refs } from './refs';
 import TrendingMovies from './MykolaPom';
 import renderFilmsMarkup from './voprim';
+import { getGenres } from './voprim';
 // import { onBackdropClick, onEscapeClick } from './Natali2721';
 // const refs = {
 //   closeModalBtnForOneMovie: document.querySelector('.modal__button'),
@@ -109,7 +110,7 @@ function renderOneMovieForModal({
 
       <tr class="table__wrap">
         <td class="description__table"></td>
-        <td class="description__table-result">Western</td>
+        <td class="description__table-result">${getGenres(genre_ids)}</td>
       </tr>
     </table>
     <p class="descrption__about">ABOUT</p>
