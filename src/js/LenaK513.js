@@ -31,10 +31,19 @@ function onBackdropClick(event) {
     // document.removeEventListener('click', onBackdropClick);
   }
 }
-
-function onOpenModal() {
+// findFilmFunc
+function findCurrentFilm(name) {
+  const filmsSet = getMoviesToLocalhost();
+  return filmsSet.find(option => option.original_title === name);
+}
+//
+function onOpenModal(e) {
   refs.backdropOneMovie.classList.remove('is-hidden');
   document.body.classList.add('modal-open');
+
+  const nameFilm = e.target.alt;
+  const curentObject = findCurrentFilm(nameFilm);
+  renderOneMovieForModal(curentObject);
 
   document.addEventListener('keydown', onEscapeClick);
   document.addEventListener('click', onBackdropClick);
@@ -48,67 +57,69 @@ function onCloseModal() {
   document.removeEventListener('click', onBackdropClick);
 }
 
-// const trendMoviesForLocalhost = new TrendingMovies();
+const trendMoviesForLocalhost = new TrendingMovies();
 
-// function getMoviesToLocalhost() {
-//   trendMoviesForLocalhost
-//     .fetchTrendingMovies()
-//     .then(data => {
-//       console.log(data[0]);
-//     })
-//     .then(renderOneMovieForModal);
-// }
-// getMoviesToLocalhost();
+function getMoviesToLocalhost() {
+  return JSON.parse(localStorage.getItem('currentFilms'));
 
-// const movieDescription = document.querySelector('.modal__wrap');
+  // trendMoviesForLocalhost
+  //   .fetchTrendingMovies()
+  //   .then(data => {
+  //     console.log(data[0]);
+  //   })
+  //   .then(renderOneMovieForModal);
+}
+getMoviesToLocalhost();
 
-// function renderOneMovieForModal({
-//   id,
-//   genre_ids,
-//   poster_path,
-//   original_title,
-//   overview,
-//   popularity,
-//   title,
-//   vote_average,
-//   vote_count,
-// }) {
-//   movieDescription.innerHTML = '';
-//   return (movieDescription.innerHTML = ` <div class="modal__wrap">
-//   <div class="image__wrap">
-//     <img class="image" src="https://image.tmdb.org/t/p/original${poster_path}" alt="${title}" />
-//   </div>
-//   <div class="description__wrap">
-//     <h1 class="description__title">${title}</h1>
-//     <table>
-//       <tr class="table__wrap">
-//         <td class="description__table">Vote / Votes</td>
-//         <td class="description__table-result">
-//           <span class="votes">${vote_average}</span> /${vote_count}
-//         </td>
-//       </tr>
-//       <tr class="table__wrap">
-//         <td class="description__table">Popularity</td>
-//         <td class="description__table-result">${popularity}</td>
-//       </tr>
-//       <tr class="table__wrap">
-//         <td class="description__table">Original Title</td>
-//         <td class="description__table-result">${original_title}</td>
-//       </tr>
+const movieDescription = document.querySelector('.modal__wrap');
 
-//       <tr class="table__wrap">
-//         <td class="description__table"></td>
-//         <td class="description__table-result">Western</td>
-//       </tr>
-//     </table>
-//     <p class="descrption__about">ABOUT</p>
-//     <p class="description__text">
-//      ${overview}
-//     </p>
-//     <div class="btn__wrap">
-//       <button class="btn btn__modal-add">add to Watched</button>
-//       <button class="btn btn__modal-queue">add to queue</button>
-//     </div>
-//   </div>
-// </div>`);
-// }
+function renderOneMovieForModal({
+  id,
+  genre_ids,
+  poster_path,
+  original_title,
+  overview,
+  popularity,
+  title,
+  vote_average,
+  vote_count,
+}) {
+  movieDescription.innerHTML = '';
+  return (movieDescription.innerHTML = ` <div class="modal__wrap">
+  <div class="image__wrap">
+    <img class="image" src="https://image.tmdb.org/t/p/original${poster_path}" alt="${title}" />
+  </div>
+  <div class="description__wrap">
+    <h1 class="description__title">${title}</h1>
+    <table>
+      <tr class="table__wrap">
+        <td class="description__table">Vote / Votes</td>
+        <td class="description__table-result">
+          <span class="votes">${vote_average}</span> /${vote_count}
+        </td>
+      </tr>
+      <tr class="table__wrap">
+        <td class="description__table">Popularity</td>
+        <td class="description__table-result">${popularity}</td>
+      </tr>
+      <tr class="table__wrap">
+        <td class="description__table">Original Title</td>
+        <td class="description__table-result">${original_title}</td>
+      </tr>
+
+      <tr class="table__wrap">
+        <td class="description__table"></td>
+        <td class="description__table-result">Western</td>
+      </tr>
+    </table>
+    <p class="descrption__about">ABOUT</p>
+    <p class="description__text">
+     ${overview}
+    </p>
+    <div class="btn__wrap">
+      <button class="btn btn__modal-add">add to Watched</button>
+      <button class="btn btn__modal-queue">add to queue</button>
+    </div>
+  </div>
+</div>`);
+}
