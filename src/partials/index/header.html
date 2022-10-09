@@ -1,32 +1,40 @@
 <header class="header" id="header"> 
-    <div class="header__container">
-    <nav class=" header__navigation"> 
-      
-            <a class="header__navigation-logo" href="#"> <span class="header__logo-name">Filmoteka</span>
-             <svg class="header__logo-icon" width ="24px" height = "24px"> 
-               <use href="/src/images/film.svg#icon-logo"></use>
-             </svg>
-             </a>
+    <div class="header-film__container">
+       <div class="header-film__main-wraper"> 
+         
+        <div class="header-film__logo">
+          <a class="header-film__logo-link" href="#"> <span class="header-film__logo-name">Filmoteka</span>
+            <svg class="header-film__logo-icon" width ="24px" height = "24px"> 
+              <use href="/src/images/film.svg#icon-logo"></use>
+            </svg>
+            </a>
+        </div>
 
-           <div>
-            <form id="header-form">
-              <input type="text" name="Movie search" placeholder="Movie search" autofocus />
-            <button type="submit" class="header__form-search">
-                <svg class="header__logo-search" width="12px" height="12px"> 
-                    <use href="/src/images/search 2.svg#icon-search"></use>
-                </svg>
-            </button>
-          </div>
+        <nav class=" header__navigation"> 
+         <ul class="header__navigation-button">
+          <li class="header__navigation-item">
+              <a class="header__navigation-link" href="/src/partials/index/gallery.html" target="_self">Home</a>
+          </li>
+          <li class="header__navigation-item"> 
+              <a class="header__navigation-link" href="/src/library.html" target="_self">My Library</a>
+          </li>
+         </ul>
+         </nav>
 
-           <ul class="header__navigation-button">
-            <li class="header__navigation-item">
-                <a class="header__navigation-link" href="#">Home</a>
-            </li>
-            <li class="header__navigation-item"> 
-                <a class="header__navigation-link" href="/src/library.html" target="_self">My Library</a>
-            </li>
-           </ul>
 
-    </nav>
+       </div>
+
+        <div class="header-film__search-wraper">
+         
+          <form class="header__form">
+            <input type="text" name="Movie search" placeholder="Movie search" class="header-film__input" autofocus />
+          <button type="submit" class="header__form-search">
+              <svg class="header-film__logo-search" width="12px" height="12px"> 
+                  <use href="/src/images/search 2.svg#icon-search"></use>
+              </svg>
+         
+        </div>
+        <p class="header-film__warning-msg visually-hidden">Search result not successful. Enter the correct movie name and </p>
+           
     </div>
 </header>
