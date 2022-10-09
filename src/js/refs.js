@@ -7,7 +7,7 @@ const refs = {
   container: document.getElementById('pagination'),
   closeModalBtnForOneMovie: document.querySelector('.modal__button'),
   modalForOneMovie: document.querySelector('.modal'),
-  backdropOneMovie: document.querySelector('.backdrop__movie'),
+  backdropOneMovie: document.querySelector('.backdrop'),
 };
 
 export { refs };
