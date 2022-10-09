@@ -9,9 +9,7 @@ export default class TrendingMovies {
   }
 
   fetchTrendingMovies() {
-    return fetch(
-      `${BASE_URL}trending/movie/day?api_key=${KEY_API}&page=${this.page}&language=en-US`
-    )
+    return fetch(`${BASE_URL}trending/movie/day?api_key=${KEY_API}&page=${this.page}&language=en-US`)
       .then(response => response.json())
       .then(data => {
         this.results = data.total_results;
@@ -28,12 +26,28 @@ export default class TrendingMovies {
         this.results = data.total_results;
         return data.results;
       });
+    // .then(({ results }) => {
+    //   return this.fetchGenresIds().then(r => {
+    //     return results.map(film => ({
+    //       ...film,
+    //       title: film.title ? this.getCuttedName(film.title) : '',
+    //       name: film.name ? this.getCuttedName(film.name) : '',
+    //       release_date: film.release_date
+    //         ? film.release_date.slice(0, 4)
+    //         : '',
+    //       first_air_date: film.first_air_date
+    //         ? film.first_air_date.slice(0, 4)
+    //         : '',
+    //       genre_ids: film.genre_ids
+    //         ? this.getGenreName(r, film.genre_ids)
+    //         : [],
+    //     }));
+    //   });
+    // });
   }
 
   fetchGenresIds() {
-    return fetch(
-      `${BASE_URL}genre/movie/list?api_key=${KEY_API}&language=en-US`
-    )
+    return fetch(`${BASE_URL}genre/movie/list?api_key=${KEY_API}&language=en-US`)
       .then(response => response.json())
       .then(data => {
         return data.genres; // повертає жанри для рендерінгу картки
@@ -58,26 +72,7 @@ export default class TrendingMovies {
   //   const genreArray = [];
   //   let genreList = '';
 
-  //   values.forEach(value => {
-  //     genres.find(genre => {
-  //       if (value === genre.id) {
-  //         genreArray.push(genre.name);
-  //         if (genreArray.length > 3) {
-  //           genreArray.splice(2, 2, langText('Other'));
-  //           return;
-  //         }
-  //       }
-  //     });
-  //   });
-  //   genreList = genreArray.join(', ');
-  //   return genreList;
-  // }
 
-  // getCuttedName(string) {
-  //   let cuttedName;
-  //   cuttedName = string.length <= 35 ? string : string.slice(0, 35) + '...';
-  //   return cuttedName;
-  // }
 
   // fetchTotalResults() {
   //   return fetch(
@@ -88,6 +83,7 @@ export default class TrendingMovies {
   //       return data.total_results; // із функції повертається кількість резалтів(для пагінаціі)
   //     });
   // }
+
 
   getPage() {
     return this.page;
