@@ -11,5 +11,6 @@ import './js/NataliaDavydenko';
 import './js/voprim';
 import './js/spiner';
 import './js/scrollBtn';
+import './js/watched';
 
 // Ідея лайно, але для початку згодиться, я думаю=)
