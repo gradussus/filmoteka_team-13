@@ -1,69 +1,69 @@
 import { refs } from './refs';
 import TrendingMovies from './MykolaPom';
 import renderFilmsMarkup from './voprim';
-import onEscapeClick from './Natali2721';
+// import { onBackdropClick, onEscapeClick } from './Natali2721';
 // const refs = {
 //   closeModalBtnForOneMovie: document.querySelector('.modal__button'),
 //   modalForOneMovie: document.querySelector('.modal'),
 //   backdropOneMovie: document.querySelector('.backdrop__movie'),
 // };
 
-// refs.closeModalBtnForOneMovie.addEventListener('click', closeModal);
-// // refs.openModalForOneMovie.addEventListener('click', openModal);
-// // openModalForOneMovie: document.querySelector('.films__item'),
-// document.addEventListener('keydown', onEscapeClick);
+refs.closeModalBtnForOneMovie.addEventListener('click', onCloseModal);
+refs.gallery.addEventListener('click', onOpenModal);
 
-// function closeModal() {
-//   refs.backdropOneMovie.classList.add('is-hidden');
-//   // onEscapeClick();
-// }
+function onEscapeClick(event) {
+  //console.log('esc');
+  if (event.code == 'Escape') {
+    refs.backdropOneMovie.classList.add('is-hidden');
+    document.body.classList.remove('modal-open');
+    // document.removeEventListener('keydown', onEscapeClick);
+  }
+}
 
-// function openModal() {
-//   refs.backdropOneMovie.classList.remove('is-hidden');
-// }
+// document.addEventListener('click', onBackdropClick);
+
+function onBackdropClick(event) {
+  //console.log('event');
+  //console.log(event);
+  if (event.target == refs.backdropOneMovie) {
+    refs.backdropOneMovie.classList.add('is-hidden');
+    document.body.classList.remove('modal-open');
+    // document.removeEventListener('click', onBackdropClick);
+  }
+}
+
+function onOpenModal() {
+  refs.backdropOneMovie.classList.remove('is-hidden');
+  document.body.classList.add('modal-open');
+
+  document.addEventListener('keydown', onEscapeClick);
+  document.addEventListener('click', onBackdropClick);
+}
+
+function onCloseModal() {
+  refs.backdropOneMovie.classList.add('is-hidden');
+  document.body.classList.remove('modal-open');
+
+  document.removeEventListener('keydown', onEscapeClick);
+  document.removeEventListener('click', onBackdropClick);
+}
 
 // const trendMoviesForLocalhost = new TrendingMovies();
 
 // function getMoviesToLocalhost() {
 //   trendMoviesForLocalhost
 //     .fetchTrendingMovies()
-
 //     .then(data => {
-//       return data;
+//       console.log(data[0]);
 //     })
 //     .then(renderOneMovieForModal);
-//   // .then(stringifyMovies)
-//   // .then(parseMovies);
 // }
 // getMoviesToLocalhost();
-
-// function stringifyMovies(data) {
-//   if (data) {
-//     try {
-//       for (const object of data) {
-//         JSON.stringify(object);
-//       }
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   }
-// }
-// function parseMovies(data) {
-//   if (data) {
-//     try {
-//       for (const object of data) {
-//         JSON.parse(object);
-//       }
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   }
-// }
 
 // const movieDescription = document.querySelector('.modal__wrap');
 
 // function renderOneMovieForModal({
-//   id = 894205,
+//   id,
 //   genre_ids,
 //   poster_path,
 //   original_title,
@@ -76,7 +76,7 @@ import onEscapeClick from './Natali2721';
 //   movieDescription.innerHTML = '';
 //   return (movieDescription.innerHTML = ` <div class="modal__wrap">
 //   <div class="image__wrap">
-//     <img class="image" src="https://image.tmdb.org/t/p/original${poster_path}" alt="" />
+//     <img class="image" src="https://image.tmdb.org/t/p/original${poster_path}" alt="${title}" />
 //   </div>
 //   <div class="description__wrap">
 //     <h1 class="description__title">${title}</h1>
