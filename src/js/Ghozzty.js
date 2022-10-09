@@ -1,9 +1,20 @@
 import Pagination from 'tui-pagination';
 import TrendingMovies from './MykolaPom';
-import { renderFilmsMarkup, getGenres, renderGenres } from './voprim';
+import { renderFilmsMarkup } from './voprim';
 import { refs } from './refs';
 
 const trendingMovies = new TrendingMovies();
+
+// Жанри (початок)
+
+async function fetchGenres() {
+  let response = await fetch(
+    `https://api.themoviedb.org/3/genre/movie/list?api_key=0888b454b4f7be0ebcd69ceb372ced29&language=en-US`
+  );
+  return response.json();
+}
+
+// Жанри(кінець);
 
 // function clearFunc() {
 //   pagination.reset();
@@ -20,22 +31,26 @@ let options = {
 };
 
 function createStartList() {
+  fetchGenres().then(({ genres }) => {
+    // console.log(genres);
+    const arr = [...genres];
+    localStorage.setItem('genres', JSON.stringify(arr));
+    console.log(JSON.stringify(arr));
+  });
+
   trendingMovies
     .fetchTrendingMovies()
     .then(data => {
       renderFilmsMarkup(data);
+      options.totalItems = trendingMovies.getResults();
+      createPagination();
 
-      renderGenres(data);
-      trendingMovies.fetchTotalResults().then(data => {
-        options.totalItems =  trendingMovies.getResults();
-        createPagination();
-      });
-
+      // renderGenres(data);
+      // trendingMovies.fetchTotalResults().then(data => {
     })
     .catch(error => console.log(error));
 }
 
-getGenres();
 createStartList();
 
 function createPagination() {
