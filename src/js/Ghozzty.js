@@ -1,6 +1,6 @@
 import Pagination from 'tui-pagination';
 import TrendingMovies from './MykolaPom';
-import renderFilmsMarkup from './voprim';
+import { renderFilmsMarkup, getGenres, renderGenres } from './voprim';
 import { refs } from './refs';
 
 const trendingMovies = new TrendingMovies();
@@ -25,11 +25,17 @@ function createStartList() {
     .then(data => {
       renderFilmsMarkup(data);
 
-      options.totalItems = trendingMovies.getResults();
-      createPagination();
+      renderGenres(data);
+      trendingMovies.fetchTotalResults().then(data => {
+        options.totalItems =  trendingMovies.getResults();
+        createPagination();
+      });
+
     })
     .catch(error => console.log(error));
 }
+
+getGenres();
 createStartList();
 
 function createPagination() {
