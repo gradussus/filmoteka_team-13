@@ -1,7 +1,7 @@
 import { refs } from './refs';
 import TrendingMovies from './MykolaPom';
 import renderFilmsMarkup from './voprim';
-import { onBackdropClick, onEscapeClick } from './Natali2721';
+// import { onBackdropClick, onEscapeClick } from './Natali2721';
 // const refs = {
 //   closeModalBtnForOneMovie: document.querySelector('.modal__button'),
 //   modalForOneMovie: document.querySelector('.modal'),
@@ -11,9 +11,31 @@ import { onBackdropClick, onEscapeClick } from './Natali2721';
 refs.closeModalBtnForOneMovie.addEventListener('click', onCloseModal);
 refs.gallery.addEventListener('click', onOpenModal);
 
+function onEscapeClick(event) {
+  //console.log('esc');
+  if (event.code == 'Escape') {
+    refs.backdropOneMovie.classList.add('is-hidden');
+    document.body.classList.remove('modal-open');
+    // document.removeEventListener('keydown', onEscapeClick);
+  }
+}
+
+// document.addEventListener('click', onBackdropClick);
+
+function onBackdropClick(event) {
+  //console.log('event');
+  //console.log(event);
+  if (event.target == refs.backdropOneMovie) {
+    refs.backdropOneMovie.classList.add('is-hidden');
+    document.body.classList.remove('modal-open');
+    // document.removeEventListener('click', onBackdropClick);
+  }
+}
+
 function onOpenModal() {
   refs.backdropOneMovie.classList.remove('is-hidden');
   document.body.classList.add('modal-open');
+
   document.addEventListener('keydown', onEscapeClick);
   document.addEventListener('click', onBackdropClick);
 }
@@ -21,6 +43,7 @@ function onOpenModal() {
 function onCloseModal() {
   refs.backdropOneMovie.classList.add('is-hidden');
   document.body.classList.remove('modal-open');
+
   document.removeEventListener('keydown', onEscapeClick);
   document.removeEventListener('click', onBackdropClick);
 }
