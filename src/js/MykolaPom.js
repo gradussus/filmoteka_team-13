@@ -9,7 +9,9 @@ export default class TrendingMovies {
   }
 
   fetchTrendingMovies() {
-    return fetch(`${BASE_URL}trending/movie/day?api_key=${KEY_API}&page=${this.page}&language=en-US`)
+    return fetch(
+      `${BASE_URL}trending/movie/day?api_key=${KEY_API}&page=${this.page}&language=en-US`
+    )
       .then(response => response.json())
       .then(data => {
         this.results = data.total_results;
@@ -47,7 +49,9 @@ export default class TrendingMovies {
   }
 
   fetchGenresIds() {
-    return fetch(`${BASE_URL}genre/movie/list?api_key=${KEY_API}&language=en-US`)
+    return fetch(
+      `${BASE_URL}genre/movie/list?api_key=${KEY_API}&language=en-US`
+    )
       .then(response => response.json())
       .then(data => {
         return data.genres; // повертає жанри для рендерінгу картки
@@ -67,23 +71,6 @@ export default class TrendingMovies {
       });
     });
   }
-
-  // getGenreName(genres, values) {
-  //   const genreArray = [];
-  //   let genreList = '';
-
-
-
-  // fetchTotalResults() {
-  //   return fetch(
-  //     `${BASE_URL}trending/movie/day?api_key=${KEY_API}&page=${this.page}&language=en-US`
-  //   )
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       return data.total_results; // із функції повертається кількість резалтів(для пагінаціі)
-  //     });
-  // }
-
 
   getPage() {
     return this.page;
