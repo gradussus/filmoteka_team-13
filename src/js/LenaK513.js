@@ -13,7 +13,7 @@ import { spinerClose, spinerOpen } from './spiner';
 
 refs.closeModalBtnForOneMovie.addEventListener('click', onCloseModal);
 refs.gallery.addEventListener('click', onOpenModal);
-
+let addToWatchedBtn;
 function onEscapeClick(event) {
   //console.log('esc');
   if (event.code == 'Escape') {
@@ -54,7 +54,7 @@ function onOpenModal(e) {
 
   //
   spinerClose();
-  const addToWatchedBtn = document.querySelector('.btn__modal-add');
+  addToWatchedBtn = document.querySelector('.btn__modal-add');
   addToWatchedBtn.addEventListener('click', addToLS(curentObject));
   //
 
