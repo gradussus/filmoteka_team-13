@@ -1,7 +1,7 @@
 import { refs } from './refs';
 import TrendingMovies from './MykolaPom';
 import renderFilmsMarkup from './voprim';
-import { getGenres, renderFilmsLibrary } from './voprim';
+import { getGenres } from './voprim';
 import FilmsStorage from './watched-queue';
 import { spinerClose, spinerOpen } from './spiner';
 // import { onBackdropClick, onEscapeClick } from './Natali2721';
@@ -11,8 +11,10 @@ import { spinerClose, spinerOpen } from './spiner';
 //   backdropOneMovie: document.querySelector('.backdrop__movie'),
 // };
 
+
 refs.closeModalBtnForOneMovie.addEventListener('click', onCloseModal);
 refs.gallery.addEventListener('click', onOpenModal);
+
 
 let addToWatchedBtn;
 
@@ -31,8 +33,8 @@ let currentFilm = {};
 // addToQueueBtn.addEventListener('click', addToQueueLS(curentObject));
 // lib
 
+
 function onEscapeClick(event) {
-  //console.log('esc');
   if (event.code == 'Escape') {
     refs.backdropOneMovie.classList.add('is-hidden');
     document.body.classList.remove('modal-open');
@@ -58,6 +60,7 @@ function findCurrentFilm(name) {
   return currentFilm;
 }
 //
+
 function checkClick(e) {
   const element = e.target.nodeName;
   if (
@@ -81,6 +84,7 @@ function onOpenModal(e) {
 
   const nameFilm = e.target.alt;
   const curentObject = findCurrentFilm(nameFilm);
+  console.log(curentObject);
   renderOneMovieForModal(curentObject);
 
   //
@@ -113,24 +117,12 @@ function onCloseModal() {
   document.removeEventListener('click', onBackdropClick);
 }
 
-const trendMoviesForLocalhost = new TrendingMovies();
-
 function getMoviesToLocalhost() {
   return JSON.parse(localStorage.getItem('currentFilms'));
-
-  // trendMoviesForLocalhost
-  //   .fetchTrendingMovies()
-  //   .then(data => {
-  //     console.log(data[0]);
-  //   })
-  //   .then(renderOneMovieForModal);
 }
 getMoviesToLocalhost();
 
-const movieDescription = document.querySelector('.modal__wrap');
-
 function renderOneMovieForModal({
-  id,
   genre_ids,
   poster_path,
   original_title,
@@ -141,7 +133,7 @@ function renderOneMovieForModal({
   vote_count,
 }) {
   movieDescription.innerHTML = '';
-  return (movieDescription.innerHTML = ` <div class="modal__wrap">
+  return (movieDescription.innerHTML = `
   <div class="image__wrap">
     <img class="image" src="https://image.tmdb.org/t/p/original${poster_path}" alt="${title}" />
   </div>
@@ -151,12 +143,12 @@ function renderOneMovieForModal({
       <tr class="table__wrap">
         <td class="description__table">Vote / Votes</td>
         <td class="description__table-result">
-          <span class="votes">${vote_average}</span> /${vote_count}
+          <span class="votes">${vote_average.toFixed(1)}</span> /${vote_count}
         </td>
       </tr>
       <tr class="table__wrap">
         <td class="description__table">Popularity</td>
-        <td class="description__table-result">${popularity}</td>
+        <td class="description__table-result">${popularity.toFixed(1)}</td>
       </tr>
       <tr class="table__wrap">
         <td class="description__table">Original Title</td>
@@ -164,13 +156,13 @@ function renderOneMovieForModal({
       </tr>
 
       <tr class="table__wrap">
-        <td class="description__table"></td>
+        <td class="description__table">Genre</td>
         <td class="description__table-result">${getGenres(genre_ids)}</td>
       </tr>
     </table>
     <p class="descrption__about">ABOUT</p>
     <p class="description__text">
-     ${overview}
+     ${overview || 'There is no imformation about this movie'}
     </p>
     <ul class="btn__wrap">
       <li>
@@ -183,7 +175,7 @@ function renderOneMovieForModal({
       </li>
     </ul>
   </div>
-</div>`);
+`);
 }
 
 //функціонал для ЛС
