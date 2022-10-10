@@ -14,6 +14,8 @@ import { spinerClose, spinerOpen } from './spiner';
 refs.closeModalBtnForOneMovie.addEventListener('click', onCloseModal);
 refs.gallery.addEventListener('click', onOpenModal);
 let addToWatchedBtn;
+let addToQueueBtn;
+
 function onEscapeClick(event) {
   //console.log('esc');
   if (event.code == 'Escape') {
@@ -54,8 +56,10 @@ function onOpenModal(e) {
 
   //
   spinerClose();
-  addToWatchedBtn = document.querySelector('.btn__modal-add');
-  addToWatchedBtn.addEventListener('click', addToLS(curentObject));
+  addToQueueBtn = document.querySelector('.btn__modal-add');
+  addToWatchedBtn = document.querySelector('.btn__modal-queue');
+  addToWatchedBtn.addEventListener('click', addToWatchedLS(curentObject));
+  addToQueueBtn.addEventListener('click', addToQueueLS(curentObject));
   //
 
   document.addEventListener('keydown', onEscapeClick);
@@ -66,7 +70,8 @@ function onCloseModal() {
   refs.backdropOneMovie.classList.add('is-hidden');
   document.body.classList.remove('modal-open');
   //
-  addToWatchedBtn.removeEventListener('click', addToLS);
+  addToWatchedBtn.removeEventListener('click', addToWatchedLS);
+  addToQueueBtn.removeEventListener('click', addToQueueLS);
   //
   document.removeEventListener('keydown', onEscapeClick);
   document.removeEventListener('click', onBackdropClick);
@@ -140,10 +145,18 @@ function renderOneMovieForModal({
 }
 
 //функціонал для ЛС
-function addToLS(a) {
+function addToWatchedLS(a) {
   const storage = new FilmsStorage();
   storage.refreshData();
   console.log(storage._watchedFilmsList);
   storage.addToWatchedFilms(a);
   storage.saveWatchedFilms();
+}
+
+function addToQueueLS(a) {
+  const storage = new FilmsStorage();
+  storage.refreshDataQueue();
+  console.log(storage._queueFilmsList);
+  storage.addToQueueFilms(a);
+  storage.saveQueueFilms();
 }
