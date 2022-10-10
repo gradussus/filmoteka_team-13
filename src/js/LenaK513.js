@@ -156,7 +156,7 @@ function renderOneMovieForModal({
 
       <tr class="table__wrap">
         <td class="description__table">Genre</td>
-        <td class="description__table-result">${getGenres(genre_ids)}</td>
+        <td class="description__table-result">${getGenres(genre_ids, 100)}</td>
       </tr>
     </table>
     <p class="descrption__about">ABOUT</p>
