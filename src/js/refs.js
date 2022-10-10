@@ -4,6 +4,7 @@ const refs = {
   spinerBackdrop: document.querySelector('.spiner__backdrop'),
   filmsListRef: document.querySelector('.films'),
   gallery: document.querySelector('.gallery__set'),
+  libGallery: document.querySelector('.lib-gallery__set'),
   container: document.getElementById('pagination'),
   galleryGenreItem: document.querySelector('.film__genres'),
   form: document.querySelector('.header__form'),
