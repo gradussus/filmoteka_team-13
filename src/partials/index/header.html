@@ -10,13 +10,13 @@
             </a>
         </div>
 
-        <nav class=" header__navigation"> 
-         <ul class="header__navigation-button">
-          <li class="header__navigation-item">
-              <a class="header__navigation-link  main-current" href="/src/index.html" target="_self">Home</a>
+        <nav class=" header-film__navigation"> 
+         <ul class="header-film__navigation-button">
+          <li class="header-film__navigation-item">
+              <a class="header-film__navigation-link  main-current" href="/src/index.html" target="_self">Home</a>
           </li>
-          <li class="header__navigation-item"> 
-              <a class="header__navigation-link " href="/src/library.html" target="_self">My Library</a>
+          <li class="header-film__navigation-item"> 
+              <a class="header-film__navigation-link " href="/src/library.html" target="_self">My Library</a>
           </li>
          </ul>
          </nav>
@@ -25,11 +25,13 @@
 
         <div class="header-film__search-wraper">
          
-          <form class="header__form">
+          <form class="header-film__form">
             <input type="text" name="Movie search" placeholder="Movie search" class="header-film__input" autofocus />
           <button type="submit"  class="header__form-search">
-              <img src="/src/images/search2.png" alt="search-logo" >
-    
+              <!-- <img src="/src/images/search2.png" alt="search-logo" > -->
+              <svg class="header__search-icon" width="17" height="17">
+                <use href="/src/images/search2old.svg#icon-search"></use>
+              </svg>
           </button>
           </form>
         </div>
