@@ -96,8 +96,9 @@ function onOpenModal(e) {
   removeFromWatchedBtn = document.querySelector('.btn__modal-r-watched');
 
   addToWatchedBtn.addEventListener('click', addToWatchedLS);
-
+  removeFromWatchedBtn.addEventListener('click', removeFromWatchedLS);
   addToQueueBtn.addEventListener('click', addToQueueLS);
+  removeFromQueueBtn.addEventListener('click', removeFromQueueLS);
   //
 
   document.addEventListener('keydown', onEscapeClick);
@@ -186,8 +187,8 @@ function addToWatchedLS() {
 
   //
 
-  //addToWatchedBtn.classList.add('is-hidden');
-  //removeFromWatchedBtn.classList.remove('is-hidden');
+  addToWatchedBtn.classList.add('is-hidden');
+  removeFromWatchedBtn.classList.remove('is-hidden');
 }
 
 function addToQueueLS() {
@@ -197,5 +198,16 @@ function addToQueueLS() {
   storage.addToQueueFilms(currentFilm);
   storage.saveQueueFilms();
 
-  //addToWatchedBtn.classList.add('is-hidden');
+  addToQueueBtn.classList.add('is-hidden');
+  removeFromQueueBtn.classList.remove('is-hidden');
+}
+
+function removeFromWatchedLS() {
+  addToWatchedBtn.classList.remove('is-hidden');
+  removeFromWatchedBtn.classList.add('is-hidden');
+}
+
+function removeFromQueueLS() {
+  addToQueueBtn.classList.remove('is-hidden');
+  removeFromQueueBtn.classList.add('is-hidden');
 }
