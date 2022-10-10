@@ -12,6 +12,9 @@ const refs = {
   modalForOneMovie: document.querySelector('.modal'),
   backdropOneMovie: document.querySelector('.backdrop'),
   btnAddToWatched: document.querySelector('.btn__modal-add'),
+  btnRemoveFromWatched: document.querySelector('.btn__modal-r-watched'),
+  btnAddToQuene: document.querySelector('.btn__modal-queue'),
+  btnRemoveFromQuene: document.querySelector('.btn__modal-r-queue'),
 };
 
 export { refs };
