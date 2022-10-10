@@ -3,6 +3,7 @@ import TrendingMovies from './MykolaPom';
 import renderFilmsMarkup from './voprim';
 import { getGenres } from './voprim';
 import FilmsStorage from './watched';
+import { spinerClose, spinerOpen } from './spiner';
 // import { onBackdropClick, onEscapeClick } from './Natali2721';
 // const refs = {
 //   closeModalBtnForOneMovie: document.querySelector('.modal__button'),
@@ -40,16 +41,23 @@ function findCurrentFilm(name) {
 }
 //
 function onOpenModal(e) {
+  //
+  spinerOpen();
+  document.addEventListener('click', spinerClose);
+  //
   refs.backdropOneMovie.classList.remove('is-hidden');
   document.body.classList.add('modal-open');
 
   const nameFilm = e.target.alt;
   const curentObject = findCurrentFilm(nameFilm);
   renderOneMovieForModal(curentObject);
+
   //
+  spinerClose();
   const addToWatchedBtn = document.querySelector('.btn__modal-add');
-  addToWatchedBtn.addEventListener('click', addToLS);
+  addToWatchedBtn.addEventListener('click', addToLS(curentObject));
   //
+
   document.addEventListener('keydown', onEscapeClick);
   document.addEventListener('click', onBackdropClick);
 }
@@ -132,10 +140,10 @@ function renderOneMovieForModal({
 }
 
 //функціонал для ЛС
-function addToLS() {
+function addToLS(a) {
   const storage = new FilmsStorage();
-  //storage.refreshData();
+  storage.refreshData();
   console.log(storage._watchedFilmsList);
-  storage.addToWatchedFilms();
+  storage.addToWatchedFilms(a);
   storage.saveWatchedFilms();
 }
