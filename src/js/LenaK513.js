@@ -11,10 +11,9 @@ import { spinerClose, spinerOpen } from './spiner';
 //   backdropOneMovie: document.querySelector('.backdrop__movie'),
 // };
 
-
+const movieDescription = document.querySelector('.modal__wrap');
 refs.closeModalBtnForOneMovie.addEventListener('click', onCloseModal);
 refs.gallery.addEventListener('click', onOpenModal);
-
 
 let addToWatchedBtn;
 
@@ -32,7 +31,6 @@ let currentFilm = {};
 // addToWatchedBtn.addEventListener('click', addToWatchedLS(curentObject));
 // addToQueueBtn.addEventListener('click', addToQueueLS(curentObject));
 // lib
-
 
 function onEscapeClick(event) {
   if (event.code == 'Escape') {
