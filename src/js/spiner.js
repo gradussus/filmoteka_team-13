@@ -1,4 +1,4 @@
-document.addEventListener('click', spinerClose);
+//document.addEventListener('click', spinerClose);
 
 function spinerClose() {
   const spinerBackdrop = document.querySelector('.spiner__backdrop');
@@ -14,4 +14,4 @@ function spinerOpen() {
   document.removeEventListener('click', spinerOpen);
 }
 
-//export { spinerClose, spinerOpen };
+export { spinerClose, spinerOpen };

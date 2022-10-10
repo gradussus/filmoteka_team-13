@@ -2,11 +2,25 @@ import { refs } from './refs';
 
 import { getGenres } from './voprim';
 
+import FilmsStorage from './watched-queue';
+import { spinerClose, spinerOpen } from './spiner';
+// import { onBackdropClick, onEscapeClick } from './Natali2721';
+// const refs = {
+//   closeModalBtnForOneMovie: document.querySelector('.modal__button'),
+//   modalForOneMovie: document.querySelector('.modal'),
+//   backdropOneMovie: document.querySelector('.backdrop__movie'),
+// };
+
+
 refs.closeModalBtnForOneMovie.addEventListener('click', onCloseModal);
 refs.gallery.addEventListener('click', onOpenModal);
 
-const movieDescription = document.querySelector('.modal__wrap');
-const description = document.querySelector('.description__text');
+
+let addToWatchedBtn;
+let addToQueueBtn;
+let removeFromWatchedBtn;
+let removeFromQueueBtn;
+
 
 function onEscapeClick(event) {
   if (event.code == 'Escape') {
@@ -48,9 +62,11 @@ function checkClick(e) {
 }
 
 function onOpenModal(e) {
-  if (!checkClick(e)) {
+
+   if (!checkClick(e)) {
     return;
   }
+
   refs.backdropOneMovie.classList.remove('is-hidden');
   document.body.classList.add('modal-open');
 
@@ -59,6 +75,18 @@ function onOpenModal(e) {
   console.log(curentObject);
   renderOneMovieForModal(curentObject);
 
+  //
+  spinerClose();
+
+  addToQueueBtn = document.querySelector('.btn__modal-add');
+  addToWatchedBtn = document.querySelector('.btn__modal-queue');
+  removeFromQueueBtn = document.querySelector('.btn__modal-r-queue');
+  removeFromWatchedBtn = document.querySelector('.btn__modal-r-watched');
+
+  addToWatchedBtn.addEventListener('click', addToWatchedLS(curentObject));
+  addToQueueBtn.addEventListener('click', addToQueueLS(curentObject));
+  //
+
   document.addEventListener('keydown', onEscapeClick);
   document.addEventListener('click', onBackdropClick);
 }
@@ -66,7 +94,10 @@ function onOpenModal(e) {
 function onCloseModal() {
   refs.backdropOneMovie.classList.add('is-hidden');
   document.body.classList.remove('modal-open');
-
+  //
+  addToWatchedBtn.removeEventListener('click', addToWatchedLS);
+  addToQueueBtn.removeEventListener('click', addToQueueLS);
+  //
   document.removeEventListener('keydown', onEscapeClick);
   document.removeEventListener('click', onBackdropClick);
 }
@@ -118,10 +149,36 @@ function renderOneMovieForModal({
     <p class="description__text">
      ${overview || 'There is no imformation about this movie'}
     </p>
-    <div class="btn__wrap">
-      <button class="btn btn__modal-add">add to Watched</button>
-      <button class="btn btn__modal-queue">add to queue</button>
-    </div>
+    <ul class="btn__wrap">
+      <li>
+        <button class="btn btn__modal-add">add to Watched</button>
+        <button class="btn btn__modal-r-watched is-hidden">remove from Watched</button>
+      </li>
+      <li>
+        <button class="btn btn__modal-queue">add to queue</button>
+        <button class="btn btn__modal-r-queue is-hidden">remove from queue</button>
+      </li>
+    </ul>
   </div>
 `);
+}
+
+//функціонал для ЛС
+function addToWatchedLS(a) {
+  const storage = new FilmsStorage();
+  storage.refreshData();
+  //console.log(storage._watchedFilmsList);
+  storage.addToWatchedFilms(a);
+  storage.saveWatchedFilms();
+  //addToWatchedBtn.classList.add('is-hidden');
+  //removeFromWatchedBtn.classList.remove('is-hidden');
+}
+
+function addToQueueLS(a) {
+  const storage = new FilmsStorage();
+  storage.refreshDataQueue();
+  //console.log(storage._queueFilmsList);
+  storage.addToQueueFilms(a);
+  storage.saveQueueFilms();
+  //addToWatchedBtn.classList.add('is-hidden');
 }
