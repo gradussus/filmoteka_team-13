@@ -11,6 +11,6 @@ import './js/NataliaDavydenko';
 import './js/voprim';
 import './js/spiner';
 import './js/scrollBtn';
-import './js/watched';
+import './js/watched-queue';
 
 // Ідея лайно, але для початку згодиться, я думаю=)
