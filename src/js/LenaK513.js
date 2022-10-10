@@ -13,8 +13,11 @@ import { spinerClose, spinerOpen } from './spiner';
 
 refs.closeModalBtnForOneMovie.addEventListener('click', onCloseModal);
 refs.gallery.addEventListener('click', onOpenModal);
+
 let addToWatchedBtn;
 let addToQueueBtn;
+let removeFromWatchedBtn;
+let removeFromQueueBtn;
 
 function onEscapeClick(event) {
   //console.log('esc');
@@ -56,8 +59,12 @@ function onOpenModal(e) {
 
   //
   spinerClose();
+
   addToQueueBtn = document.querySelector('.btn__modal-add');
   addToWatchedBtn = document.querySelector('.btn__modal-queue');
+  removeFromQueueBtn = document.querySelector('.btn__modal-r-queue');
+  removeFromWatchedBtn = document.querySelector('.btn__modal-r-watched');
+
   addToWatchedBtn.addEventListener('click', addToWatchedLS(curentObject));
   addToQueueBtn.addEventListener('click', addToQueueLS(curentObject));
   //
@@ -136,10 +143,16 @@ function renderOneMovieForModal({
     <p class="description__text">
      ${overview}
     </p>
-    <div class="btn__wrap">
-      <button class="btn btn__modal-add">add to Watched</button>
-      <button class="btn btn__modal-queue">add to queue</button>
-    </div>
+    <ul class="btn__wrap">
+      <li>
+        <button class="btn btn__modal-add">add to Watched</button>
+        <button class="btn btn__modal-r-watched is-hidden">remove from Watched</button>
+      </li>
+      <li>
+        <button class="btn btn__modal-queue">add to queue</button>
+        <button class="btn btn__modal-r-queue is-hidden">remove from queue</button>
+      </li>
+    </ul>
   </div>
 </div>`);
 }
@@ -148,15 +161,18 @@ function renderOneMovieForModal({
 function addToWatchedLS(a) {
   const storage = new FilmsStorage();
   storage.refreshData();
-  console.log(storage._watchedFilmsList);
+  //console.log(storage._watchedFilmsList);
   storage.addToWatchedFilms(a);
   storage.saveWatchedFilms();
+  //addToWatchedBtn.classList.add('is-hidden');
+  //removeFromWatchedBtn.classList.remove('is-hidden');
 }
 
 function addToQueueLS(a) {
   const storage = new FilmsStorage();
   storage.refreshDataQueue();
-  console.log(storage._queueFilmsList);
+  //console.log(storage._queueFilmsList);
   storage.addToQueueFilms(a);
   storage.saveQueueFilms();
+  //addToWatchedBtn.classList.add('is-hidden');
 }

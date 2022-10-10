@@ -115,7 +115,9 @@ body.modal-open {
 .btn__modal-queue {
   padding: 12px;
 }
-
+.btn.is-hidden {
+  display: none;
+}
 .btn__modal-add:hover,
 .btn__modal-add:focus,
 .btn__modal-queue:hover,
