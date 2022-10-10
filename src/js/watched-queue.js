@@ -53,13 +53,15 @@ export default class FilmsStorage {
     if (!localStorage.getItem('watched-films')) {
       return;
     }
-    this._watchedFilmsList = JSON.parse(localStorage.getItem('watched-films'));
+    // this._watchedFilmsList = JSON.parse(localStorage.getItem('watched-films'));
+    return JSON.parse(localStorage.getItem('watched-films'));
   }
   getQueueFilmsList() {
     if (!localStorage.getItem('queue-films')) {
       return;
     }
-    this._queueFilmsList = JSON.parse(localStorage.getItem('queue-films'));
+    // this._queueFilmsList = JSON.parse(localStorage.getItem('queue-films'));
+    return JSON.parse(localStorage.getItem('queue-films'));
   }
 }
 

@@ -1,7 +1,7 @@
 import { refs } from './refs';
-
+import TrendingMovies from './MykolaPom';
+import renderFilmsMarkup from './voprim';
 import { getGenres } from './voprim';
-
 import FilmsStorage from './watched-queue';
 import { spinerClose, spinerOpen } from './spiner';
 // import { onBackdropClick, onEscapeClick } from './Natali2721';
@@ -17,9 +17,21 @@ refs.gallery.addEventListener('click', onOpenModal);
 
 
 let addToWatchedBtn;
+
 let addToQueueBtn;
 let removeFromWatchedBtn;
 let removeFromQueueBtn;
+let currentFilm = {};
+
+// lib
+// addToWatchedBtn = document.querySelector('.btn__modal-add');
+// addToQueueBtn = document.querySelector('.btn__modal-queue');
+// removeFromQueueBtn = document.querySelector('.btn__modal-r-queue');
+// removeFromWatchedBtn = document.querySelector('.btn__modal-r-watched');
+
+// addToWatchedBtn.addEventListener('click', addToWatchedLS(curentObject));
+// addToQueueBtn.addEventListener('click', addToQueueLS(curentObject));
+// lib
 
 
 function onEscapeClick(event) {
@@ -44,7 +56,8 @@ function onBackdropClick(event) {
 // findFilmFunc
 function findCurrentFilm(name) {
   const filmsSet = getMoviesToLocalhost();
-  return filmsSet.find(option => option.original_title === name);
+  currentFilm = filmsSet.find(option => option.original_title === name);
+  return currentFilm;
 }
 //
 
@@ -62,8 +75,7 @@ function checkClick(e) {
 }
 
 function onOpenModal(e) {
-
-   if (!checkClick(e)) {
+  if (!checkClick(e)) {
     return;
   }
 
@@ -76,15 +88,18 @@ function onOpenModal(e) {
   renderOneMovieForModal(curentObject);
 
   //
-  spinerClose();
 
-  addToQueueBtn = document.querySelector('.btn__modal-add');
-  addToWatchedBtn = document.querySelector('.btn__modal-queue');
+  spinerClose();
+  addToWatchedBtn = document.querySelector('.btn__modal-add');
+
+  addToQueueBtn = document.querySelector('.btn__modal-queue');
   removeFromQueueBtn = document.querySelector('.btn__modal-r-queue');
+
   removeFromWatchedBtn = document.querySelector('.btn__modal-r-watched');
 
-  addToWatchedBtn.addEventListener('click', addToWatchedLS(curentObject));
-  addToQueueBtn.addEventListener('click', addToQueueLS(curentObject));
+  addToWatchedBtn.addEventListener('click', addToWatchedLS);
+
+  addToQueueBtn.addEventListener('click', addToQueueLS);
   //
 
   document.addEventListener('keydown', onEscapeClick);
@@ -95,8 +110,8 @@ function onCloseModal() {
   refs.backdropOneMovie.classList.add('is-hidden');
   document.body.classList.remove('modal-open');
   //
-  addToWatchedBtn.removeEventListener('click', addToWatchedLS);
-  addToQueueBtn.removeEventListener('click', addToQueueLS);
+  // addToWatchedBtn.removeEventListener('click', addToWatchedLS);
+  // addToQueueBtn.removeEventListener('click', addToQueueLS);
   //
   document.removeEventListener('keydown', onEscapeClick);
   document.removeEventListener('click', onBackdropClick);
@@ -164,21 +179,25 @@ function renderOneMovieForModal({
 }
 
 //функціонал для ЛС
-function addToWatchedLS(a) {
+function addToWatchedLS() {
   const storage = new FilmsStorage();
   storage.refreshData();
   //console.log(storage._watchedFilmsList);
-  storage.addToWatchedFilms(a);
+  storage.addToWatchedFilms(currentFilm);
   storage.saveWatchedFilms();
+
+  //
+
   //addToWatchedBtn.classList.add('is-hidden');
   //removeFromWatchedBtn.classList.remove('is-hidden');
 }
 
-function addToQueueLS(a) {
+function addToQueueLS() {
   const storage = new FilmsStorage();
   storage.refreshDataQueue();
-  //console.log(storage._queueFilmsList);
-  storage.addToQueueFilms(a);
+
+  storage.addToQueueFilms(currentFilm);
   storage.saveQueueFilms();
+
   //addToWatchedBtn.classList.add('is-hidden');
 }

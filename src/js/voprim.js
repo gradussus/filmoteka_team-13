@@ -72,3 +72,25 @@ export function getGenres(genre_ids) {
 //     console.log(error);
 //   }
 // }
+// lib-gallery-render-func
+export function renderFilmsLibrary(films) {
+  films
+    .map(({ poster_path, genre_ids, title, release_date, id }) => {
+      return `<li class="films__item" data-id=${id}>
+                <div class="films__img">
+                    <img src=https://image.tmdb.org/t/p/original${poster_path} alt="${title}" loading="lazy">
+                </div>
+                <div class="films__description">
+                  <p class="films__title">${title}</p>
+                  <div class="films__meta">
+                    <span class="films__genres">${getGenres(genre_ids)}</span>
+                    <span class="films__sep">|</span>
+                    <span class="films__data">${(
+                      release_date || 'No info'
+                    ).slice(0, 4)}</span>
+                  </div>
+                </div>
+            </li>`;
+    })
+    .forEach(c => refs.libGallery.insertAdjacentHTML('beforeend', c));
+}
