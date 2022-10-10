@@ -7,7 +7,7 @@ const refs = {
   libGallery: document.querySelector('.lib-gallery__set'),
   container: document.getElementById('pagination'),
   galleryGenreItem: document.querySelector('.film__genres'),
-  form: document.querySelector('.header__form'),
+  form: document.querySelector('.header-film__form'),
   closeModalBtnForOneMovie: document.querySelector('.modal__button'),
   modalForOneMovie: document.querySelector('.modal'),
   backdropOneMovie: document.querySelector('.backdrop'),
