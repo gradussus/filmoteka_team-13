@@ -15,6 +15,7 @@
 */
 
 .films__item {
+    width:100%;
     position: relative;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     border-radius: 5px;
@@ -31,6 +32,9 @@
     }
 
     @media screen and (max-width: 767.98px) {
+        max-width: 336px;
+        margin-left: auto;
+        margin-right: auto;
         &:not(:last-child) {
             margin-bottom: 20px;
         }
@@ -40,6 +44,7 @@
         width: calc((100% - 64px) / 2);
         margin-left: 32px;
         margin-bottom: 32px;
+        max-width: 336px;
     }
 
     @media screen and (min-width: 1280px) {
@@ -49,7 +54,6 @@
 }
 
 .films__img {
-    height: 464px;
     opacity: 1;
     transition: box-shadow 250ms var(--main-cubic);
 
