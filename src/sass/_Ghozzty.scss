@@ -6,13 +6,21 @@
   }
   
   .tui-page-btn{
+
+    @media screen and (max-width:767px){
+      margin: 5px;
+      margin-top: 30px;
+      height: 30px;
+      width:30px;
+    }
+
     color: black;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 40px;
     height: 40px;
-    margin: 20px;
+    margin: 15px;
     border-radius: 5px;
     cursor: pointer;
     
@@ -37,3 +45,14 @@
    
   }
   
+  .tui-prev,
+  .tui-next{
+    display: none;
+  }
+
+  .tui-next-is-ellip,
+  .tui-prev-is-ellip{
+    @media screen and (max-width:767px) {
+      display: none;
+    }
+  }
