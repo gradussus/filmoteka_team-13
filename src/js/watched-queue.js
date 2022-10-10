@@ -1,13 +1,22 @@
 export default class FilmsStorage {
   constructor() {
     this._watchedFilmsList = [];
+    this._queueFilmsList = [];
     this.refreshData();
+    this.refreshDataQueue();
   }
   refreshData() {
     if (localStorage.getItem('watched-films')) {
       this._watchedFilmsList = JSON.parse(
         localStorage.getItem('watched-films')
       );
+    }
+    //console.log('пусто');
+  }
+
+  refreshDataQueue() {
+    if (localStorage.getItem('queue-films')) {
+      this._queueFilmsList = JSON.parse(localStorage.getItem('queue-films'));
     }
     //console.log('пусто');
   }
@@ -21,6 +30,13 @@ export default class FilmsStorage {
     this._watchedFilmsList.push(item);
     this.saveWatchedFilms();
   }
+  addToQueueFilms(item) {
+    if (localStorage.getItem('queue-films')) {
+      this._queueFilmsList = JSON.parse(localStorage.getItem('queue-films'));
+    }
+    this._queueFilmsList.push(item);
+    this.saveQueueFilms();
+  }
 
   saveWatchedFilms() {
     localStorage.setItem(
@@ -29,11 +45,21 @@ export default class FilmsStorage {
     );
   }
 
+  saveQueueFilms() {
+    localStorage.setItem('queue-films', JSON.stringify(this._queueFilmsList));
+  }
+
   getWathedFilmsList() {
     if (!localStorage.getItem('watched-films')) {
       return;
     }
     this._watchedFilmsList = JSON.parse(localStorage.getItem('watched-films'));
+  }
+  getQueueFilmsList() {
+    if (!localStorage.getItem('queue-films')) {
+      return;
+    }
+    this._queueFilmsList = JSON.parse(localStorage.getItem('queue-films'));
   }
 }
 

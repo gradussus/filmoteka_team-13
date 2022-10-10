@@ -2,7 +2,7 @@ import { refs } from './refs';
 import TrendingMovies from './MykolaPom';
 import renderFilmsMarkup from './voprim';
 import { getGenres } from './voprim';
-import FilmsStorage from './watched';
+import FilmsStorage from './watched-queue';
 import { spinerClose, spinerOpen } from './spiner';
 // import { onBackdropClick, onEscapeClick } from './Natali2721';
 // const refs = {
