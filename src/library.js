@@ -2,8 +2,12 @@
 import { refs } from './js/refs';
 import { renderFilmsLibrary } from './js/voprim';
 import FilmsStorage from './js/watched-queue';
+import { spinerClose, spinerOpen } from './js/spiner';
 
 const storage = new FilmsStorage();
+
+const spinerBackdrop = document.querySelector('.spiner__backdrop');
+window.addEventListener('load', spinerClose);
 
 renderFilmsLibrary(storage.getWathedFilmsList());
 
