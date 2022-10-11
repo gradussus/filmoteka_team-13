@@ -1,7 +1,7 @@
 import { refs } from './refs';
-import TrendingMovies from './MykolaPom';
-import renderFilmsMarkup from './voprim';
-import { getGenres } from './voprim';
+import TrendingMovies from './fetchAPI';
+import renderFilmsMarkup from './renderMarkup';
+import { getGenres } from './renderMarkup';
 import FilmsStorage from './watched-queue';
 import { spinerClose, spinerOpen } from './spiner';
 // import { onBackdropClick, onEscapeClick } from './Natali2721';

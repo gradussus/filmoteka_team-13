@@ -1,9 +1,9 @@
 // Федір, твори магію)
 import { refs } from './js/refs';
-import { renderFilmsLibrary } from './js/voprim';
+import { renderFilmsLibrary } from './js/renderMarkup';
 import FilmsStorage from './js/watched-queue';
 // import { spinerClose, spinerOpen } from './js/spiner';
-import { getGenres } from './js/voprim';
+import { getGenres } from './js/renderMarkup';
 
 const storage = new FilmsStorage();
 const movieDescription = document.querySelector('.modal__wrap');

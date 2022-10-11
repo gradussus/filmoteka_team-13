@@ -1,22 +1,10 @@
 import Pagination from 'tui-pagination';
-import TrendingMovies from './MykolaPom';
-import { renderFilmsMarkup } from './voprim';
+import TrendingMovies from './fetchAPI';
+import { renderFilmsMarkup } from './renderMarkup';
 import { refs } from './refs';
 
 const trendingMovies = new TrendingMovies();
 const warn = document.querySelector('.header-film__warning-msg');
-
-// Жанри (початок)
-
-// переніс у файл де робляться фетчі з АПІ
-// async function fetchGenres() {
-//   let response = await fetch(
-//     `https://api.themoviedb.org/3/genre/movie/list?api_key=0888b454b4f7be0ebcd69ceb372ced29&language=en-US`
-//   );
-//   return response.json();
-// }
-
-// Жанри(кінець);
 
 // setToLS_answer
 
