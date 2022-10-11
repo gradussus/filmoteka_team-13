@@ -86,10 +86,10 @@ body.modal-open {
   line-height: 1.34;
 }
 
-// .description__text {
-//   max-height: 245px;
-//   overflow-y: scroll;
-// }
+.description__text {
+  max-height: 245px;
+  overflow: auto;
+}
 
 .description__table {
   color: #8c8c8c;
@@ -134,7 +134,7 @@ body.modal-open {
 .btn__modal-r-watched:focus,
 .btn__modal-queue:hover,
 .btn__modal-r-queue:hover,
-.btn__modal-queue:focus
+.btn__modal-queue:focus,
 .btn__modal-r-queue:focus {
   background-color: #ff6b01;
   color: #fff;
@@ -188,9 +188,14 @@ body.modal-open {
   .btn__modal-r-watched {
     margin-right: 20px;
   }
+
+  .btn__modal-queue {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }
 
-@media screen and (min-width: 768.98px) {
+@media screen and (min-width: 768px) {
   .modal {
     width: 704px;
     height: 552px;
@@ -240,6 +245,15 @@ body.modal-open {
     padding: 6px 9px;
     margin-right: 14px;
   }
+  .btn__modal-add {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .btn__modal-queue {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
 }
 @media screen and(min-width:1280px) {
   .modal {
@@ -266,5 +280,14 @@ body.modal-open {
 
   .btn {
     width: 136px;
+  }
+  .btn__modal-add {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .btn__modal-queue {
+    padding-left: 30px;
+    padding-right: 30px;
   }
 }
