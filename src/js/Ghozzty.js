@@ -2,9 +2,11 @@ import Pagination from 'tui-pagination';
 import TrendingMovies from './MykolaPom';
 import { renderFilmsMarkup } from './voprim';
 import { refs } from './refs';
+import { spinerClose, spinerOpen } from './spiner';
 
 const trendingMovies = new TrendingMovies();
 const warn = document.querySelector('.header-film__warning-msg');
+//
 
 // Жанри (початок)
 
@@ -68,11 +70,13 @@ function createPagination() {
 
     pagination.on('beforeMove', function (eventData) {
       refs.gallery.innerHTML = '';
+      spinerOpen();
       trendingMovies.setPage(eventData.page);
       trendingMovies
         .fetchTrendingMovies()
         .then(data => {
           onClickPageEvent(data);
+          spinerClose();
         })
         .catch(error => console.log(error));
     });
@@ -80,8 +84,9 @@ function createPagination() {
 }
 
 function onClickPageEvent(data) {
+  spinerOpen();
   renderFilmsMarkup(data);
-
+  spinerClose();
   removeInLocalStorageCurrentFilms();
   setToLocacStorageAnswer(data);
 
@@ -95,10 +100,12 @@ refs.form.addEventListener('submit', onSubmitEvent);
 
 function onSubmitEvent(e) {
   e.preventDefault();
+  spinerOpen();
   let inputValue = refs.form.firstElementChild.value;
   if (!inputValue.trim()) {
     warn.classList.remove('visually-hidden');
     refs.form.firstElementChild.value = '';
+    spinerClose();
     return;
   }
 
@@ -111,16 +118,17 @@ function onSubmitEvent(e) {
       if (!data.length) {
         warn.classList.remove('visually-hidden');
         refs.form.firstElementChild.value = '';
+        spinerClose();
         return;
       }
       warn.classList.add('visually-hidden');
       refs.gallery.innerHTML = '';
-      // checkIncorrectQuery(data);
+
       removeInLocalStorageCurrentFilms();
       setToLocacStorageAnswer(data);
 
       renderFilmsMarkup(data);
-
+      spinerClose();
       options.totalItems = trendingMovies.getResults();
 
       createPaginationOnRequest();
@@ -138,7 +146,7 @@ function createPaginationOnRequest() {
 
     trendingMovies.setPage(eventData.page);
     trendingMovies.setQuery(inputValue);
-
+    spinerOpen();
     trendingMovies
       .fetchMovie()
       .then(data => {
@@ -146,13 +154,8 @@ function createPaginationOnRequest() {
         setToLocacStorageAnswer(data);
 
         renderFilmsMarkup(data);
+        spinerClose();
       })
       .catch(error => console.log(error));
   });
 }
-
-// function checkIncorrectQuery(data) {
-//   if (!data.length) {
-//     return false;
-//   }
-// }
