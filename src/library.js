@@ -141,8 +141,8 @@ function renderOneMovieForModal({
 }) {
   movieDescription.innerHTML = '';
   const poster = poster_path
-    ? `https://image.tmdb.org/t/p/original${poster_path}`
-    : `https://image.tmdb.org/t/p/original/yEvumAoCB9Z7o9dAzjxrjcwo2FQ.jpg`;
+    ? `https://image.tmdb.org/t/p/w500${poster_path}`
+    : `https://image.tmdb.org/t/p/w500/yEvumAoCB9Z7o9dAzjxrjcwo2FQ.jpg`;
   return (movieDescription.innerHTML = `
   <div class="image__wrap">
     <img class="image" src="https://image.tmdb.org/t/p/original${poster}" alt="${
