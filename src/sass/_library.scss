@@ -1,0 +1,21 @@
+.lib-gallery__set {
+  margin-right: auto;
+  margin-left: auto;
+
+  @media screen and (max-width: 767.98px) {
+    width: 320px;
+    padding: 20px;
+  }
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+    width: 768px;
+    padding-top: 60px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    justify-content: center;
+    width: 1280px;
+  }
+}
