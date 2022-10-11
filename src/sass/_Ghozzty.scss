@@ -1,5 +1,7 @@
 // 
 .tui-pagination{
+    margin-top: 40px;
+    margin-bottom: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,7 +11,7 @@
 
     @media screen and (max-width:767px){
       margin: 5px;
-      margin-top: 30px;
+      // margin-top: 30px;
       height: 30px;
       width:30px;
     }
@@ -30,7 +32,7 @@
     &:hover{
       width: 40px;
       height: 40px;
-      margin: 20px;
+      // margin: 20px;
       border-radius: 5px;
       color: #fff;
     
