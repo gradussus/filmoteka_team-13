@@ -4,6 +4,7 @@ import { renderFilmsMarkup } from './voprim';
 import { refs } from './refs';
 
 const trendingMovies = new TrendingMovies();
+const warn = document.querySelector('.header-film__warning-msg');
 
 // Жанри (початок)
 
@@ -41,9 +42,7 @@ let options = {
 // startList
 
 function createStartList() {
-  trendingMovies
-    .fetchGenres()
-    .then(({ genres }) => {
+  trendingMovies.fetchGenres().then(({ genres }) => {
     const arr = [...genres];
     localStorage.setItem('genres', JSON.stringify(arr));
   });
@@ -98,15 +97,25 @@ function onSubmitEvent(e) {
   e.preventDefault();
   let inputValue = refs.form.firstElementChild.value;
   if (!inputValue.trim()) {
-    return console.log('no no no');
+    warn.classList.remove('visually-hidden');
+    refs.form.firstElementChild.value = '';
+    return;
   }
-  refs.gallery.innerHTML = '';
+
   //
   trendingMovies.setQuery(inputValue);
   trendingMovies.setPage(1);
   trendingMovies
     .fetchMovie()
     .then(data => {
+      if (!data.length) {
+        warn.classList.remove('visually-hidden');
+        refs.form.firstElementChild.value = '';
+        return;
+      }
+      warn.classList.add('visually-hidden');
+      refs.gallery.innerHTML = '';
+      // checkIncorrectQuery(data);
       removeInLocalStorageCurrentFilms();
       setToLocacStorageAnswer(data);
 
@@ -141,3 +150,9 @@ function createPaginationOnRequest() {
       .catch(error => console.log(error));
   });
 }
+
+// function checkIncorrectQuery(data) {
+//   if (!data.length) {
+//     return false;
+//   }
+// }

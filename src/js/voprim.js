@@ -54,7 +54,7 @@ export function getGenres(genre_ids, maxGenresShown) {
 export function renderFilmsLibrary(films) {
   films
     .map(({ poster_path, genre_ids, title, release_date, id }) => {
-      return `<li class="films__item" data-id=${id}>
+      return `<li class="films__item" id=${id}>
                 <div class="films__img">
                     <img src=https://image.tmdb.org/t/p/original${poster_path} alt="${title}" loading="lazy">
                 </div>
