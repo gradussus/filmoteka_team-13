@@ -18,7 +18,7 @@ export default class FilmsStorage {
     if (localStorage.getItem('queue-films')) {
       this._queueFilmsList = JSON.parse(localStorage.getItem('queue-films'));
     }
-    //console.log('пусто');
+    return;
   }
 
   addToWatchedFilms(item) {
@@ -30,6 +30,16 @@ export default class FilmsStorage {
     this._watchedFilmsList.push(item);
     this.saveWatchedFilms();
   }
+
+  myAddToQueueFilms(film) {
+    if (localStorage.getItem('queue-films')) {
+      this._queueFilmsList = JSON.parse(localStorage.getItem('queue-films'));
+    }
+
+    this._queueFilmsList.push(film);
+    localStorage.setItem('queue-films', JSON.stringify(this._queueFilmsList));
+  }
+
   addToQueueFilms(item) {
     if (localStorage.getItem('queue-films')) {
       this._queueFilmsList = JSON.parse(localStorage.getItem('queue-films'));
@@ -62,6 +72,56 @@ export default class FilmsStorage {
     }
     // this._queueFilmsList = JSON.parse(localStorage.getItem('queue-films'));
     return JSON.parse(localStorage.getItem('queue-films'));
+  }
+  removeFromWatched(film) {
+    if (!localStorage.getItem('watched-films')) {
+      return;
+    }
+    this._watchedFilmsList = JSON.parse(localStorage.getItem('watched-films'));
+    const index = this._watchedFilmsList.findIndex(
+      option => option.title === film.title
+    );
+    this._watchedFilmsList.splice(index, 1);
+    this.saveWatchedFilms();
+  }
+  removeFromQueue(film) {
+    if (!localStorage.getItem('queue-films')) {
+      return;
+    }
+    this._queueFilmsList = JSON.parse(localStorage.getItem('queue-films'));
+    const index = this._queueFilmsList.findIndex(
+      option => option.title === film.title
+    );
+    this._queueFilmsList.splice(index, 1);
+    this.saveQueueFilms();
+  }
+
+  checkFilmInWatchedLocStor(film) {
+    if (!localStorage.getItem('watched-films')) {
+      return;
+    }
+    this._watchedFilmsList = JSON.parse(localStorage.getItem('watched-films'));
+    const answer = this._watchedFilmsList.find(
+      option => option.title === film.title
+    );
+    if (answer) {
+      return true;
+    }
+    return false;
+  }
+
+  checkFilmInQueueLocStor(film) {
+    if (!localStorage.getItem('queue-films')) {
+      return;
+    }
+    this._queueFilmsList = JSON.parse(localStorage.getItem('queue-films'));
+    const answer = this._queueFilmsList.find(
+      option => option.title === film.title
+    );
+    if (answer) {
+      return true;
+    }
+    return false;
   }
 }
 

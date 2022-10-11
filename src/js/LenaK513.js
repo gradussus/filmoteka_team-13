@@ -21,6 +21,7 @@ let addToQueueBtn;
 let removeFromWatchedBtn;
 let removeFromQueueBtn;
 let currentFilm = {};
+const storage = new FilmsStorage();
 
 // lib
 // addToWatchedBtn = document.querySelector('.btn__modal-add');
@@ -82,7 +83,7 @@ function onOpenModal(e) {
 
   const nameFilm = e.target.alt;
   const curentObject = findCurrentFilm(nameFilm);
-  console.log(curentObject);
+
   renderOneMovieForModal(curentObject);
 
   //
@@ -103,6 +104,15 @@ function onOpenModal(e) {
 
   document.addEventListener('keydown', onEscapeClick);
   document.addEventListener('click', onBackdropClick);
+
+  if (storage.checkFilmInWatchedLocStor(curentObject)) {
+    addToWatchedBtn.classList.add('is-hidden');
+    removeFromWatchedBtn.classList.remove('is-hidden');
+  }
+  if (storage.checkFilmInQueueLocStor(curentObject)) {
+    addToQueueBtn.classList.add('is-hidden');
+    removeFromQueueBtn.classList.remove('is-hidden');
+  }
 }
 
 function onCloseModal() {
@@ -156,7 +166,7 @@ function renderOneMovieForModal({
 
       <tr class="table__wrap">
         <td class="description__table">Genre</td>
-        <td class="description__table-result">${getGenres(genre_ids)}</td>
+        <td class="description__table-result">${getGenres(genre_ids, 100)}</td>
       </tr>
     </table>
     <p class="descrption__about">ABOUT</p>
@@ -179,9 +189,10 @@ function renderOneMovieForModal({
 
 //функціонал для ЛС
 function addToWatchedLS() {
-  const storage = new FilmsStorage();
+  // const storage = new FilmsStorage();
   storage.refreshData();
   //console.log(storage._watchedFilmsList);
+
   storage.addToWatchedFilms(currentFilm);
   storage.saveWatchedFilms();
 
@@ -192,11 +203,12 @@ function addToWatchedLS() {
 }
 
 function addToQueueLS() {
-  const storage = new FilmsStorage();
-  storage.refreshDataQueue();
+  // const storage = new FilmsStorage();
+  // storage.refreshDataQueue();
 
-  storage.addToQueueFilms(currentFilm);
-  storage.saveQueueFilms();
+  // storage.addToQueueFilms(currentFilm);
+  // storage.saveQueueFilms();
+  storage.myAddToQueueFilms(currentFilm);
 
   addToQueueBtn.classList.add('is-hidden');
   removeFromQueueBtn.classList.remove('is-hidden');
@@ -205,9 +217,15 @@ function addToQueueLS() {
 function removeFromWatchedLS() {
   addToWatchedBtn.classList.remove('is-hidden');
   removeFromWatchedBtn.classList.add('is-hidden');
+
+  storage.removeFromWatched(currentFilm);
 }
 
 function removeFromQueueLS() {
   addToQueueBtn.classList.remove('is-hidden');
   removeFromQueueBtn.classList.add('is-hidden');
+
+  storage.removeFromQueue(currentFilm);
 }
+
+// function checkFilmInLocStor(film) {}
