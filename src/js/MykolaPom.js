@@ -28,50 +28,14 @@ export default class TrendingMovies {
         this.results = data.total_results;
         return data.results;
       });
-    // .then(({ results }) => {
-    //   return this.fetchGenresIds().then(r => {
-    //     return results.map(film => ({
-    //       ...film,
-    //       title: film.title ? this.getCuttedName(film.title) : '',
-    //       name: film.name ? this.getCuttedName(film.name) : '',
-    //       release_date: film.release_date
-    //         ? film.release_date.slice(0, 4)
-    //         : '',
-    //       first_air_date: film.first_air_date
-    //         ? film.first_air_date.slice(0, 4)
-    //         : '',
-    //       genre_ids: film.genre_ids
-    //         ? this.getGenreName(r, film.genre_ids)
-    //         : [],
-    //     }));
-    //   });
-    // });
   }
 
-  fetchGenresIds() {
+  fetchGenres() {
     return fetch(
       `${BASE_URL}genre/movie/list?api_key=${KEY_API}&language=en-US`
-    )
-      .then(response => response.json())
-      .then(data => {
-        return data.genres; // повертає жанри для рендерінгу картки
-      });
+    ).then(response => response.json());
   }
-
-  getGenreData() {
-    return this.fetchMovie().then(data => {
-      return this.fetchGenresIds().then(genresList => {
-        return data.map(movie => ({
-          ...movie,
-          release_date: movie.release_date.split('-')[0],
-          genres: movie.genre_ids
-            .map(id => genresList.filter(el => el.id === id))
-            .flat(),
-        }));
-      });
-    });
-  }
-
+  
   getPage() {
     return this.page;
   }
