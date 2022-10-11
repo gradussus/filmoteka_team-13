@@ -2,7 +2,7 @@
 import { refs } from './js/refs';
 import { renderFilmsLibrary } from './js/voprim';
 import FilmsStorage from './js/watched-queue';
-import { spinerClose, spinerOpen } from './js/spiner';
+// import { spinerClose, spinerOpen } from './js/spiner';
 import { getGenres } from './js/voprim';
 
 const storage = new FilmsStorage();
@@ -17,7 +17,7 @@ let removeFromWatchedBtn;
 let removeFromQueueBtn;
 let currentFilm = {};
 //
-spinerClose();
+// spinerClose();
 renderFilmsLibrary(storage.getWathedFilmsList());
 
 const queueBtn = document.querySelector('.queue-button');
