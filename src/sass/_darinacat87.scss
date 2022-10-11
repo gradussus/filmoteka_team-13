@@ -171,6 +171,18 @@
     }
 }
 
+.header-logo__text {
+    font-family: 'Roboto';
+    color: var(--secondary-text-color);
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1.16;
+
+    @media screen and (max-width: 767px) {
+        display: none;
+    }
+}
+
 .header-lib-logo {
     cursor: pointer;
     display: flex;
@@ -182,7 +194,7 @@
     line-height: 1.16;
 
     &__svg {
-        
+
         margin-right: 7px;
 
         @media screen and (min-width: 1280px) {
