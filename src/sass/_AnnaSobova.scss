@@ -134,11 +134,10 @@ align-items: center;
 
 .main-current{
   position: relative;
-
   height: 100%;
-
   transition-property: color;
   transition-duration: 250ms;
+  padding-bottom: 1px;
 
   
   &::after {
@@ -158,8 +157,9 @@ align-items: center;
   position: relative;
   width: 380px;
 
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 767px){
     width: 280px;
+    padding-right: 20px;
   }
   @media screen and (min-width: 768px){
     width: 330px;
@@ -213,5 +213,5 @@ align-items: center;
 }
 .header__form-search:hover,
 .header__form-search:focus{
-  transform: "scale(1.25)";
+  transform: scale(1.25);
 }
