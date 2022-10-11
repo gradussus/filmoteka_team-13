@@ -7,12 +7,13 @@ const trendingMovies = new TrendingMovies();
 
 // Жанри (початок)
 
-async function fetchGenres() {
-  let response = await fetch(
-    `https://api.themoviedb.org/3/genre/movie/list?api_key=0888b454b4f7be0ebcd69ceb372ced29&language=en-US`
-  );
-  return response.json();
-}
+// переніс у файл де робляться фетчі з АПІ
+// async function fetchGenres() {
+//   let response = await fetch(
+//     `https://api.themoviedb.org/3/genre/movie/list?api_key=0888b454b4f7be0ebcd69ceb372ced29&language=en-US`
+//   );
+//   return response.json();
+// }
 
 // Жанри(кінець);
 
@@ -40,7 +41,9 @@ let options = {
 // startList
 
 function createStartList() {
-  fetchGenres().then(({ genres }) => {
+  trendingMovies
+    .fetchGenres()
+    .then(({ genres }) => {
     const arr = [...genres];
     localStorage.setItem('genres', JSON.stringify(arr));
   });
