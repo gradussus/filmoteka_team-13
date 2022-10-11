@@ -5,20 +5,24 @@ import { refs } from './refs';
 export function renderFilmsMarkup(films) {
   films
     .map(({ poster_path, genre_ids, title, release_date, id }) => {
-      return `<li class="films__item" data-id=${id}>
+      const poster = poster_path
+        ? `https://image.tmdb.org/t/p/w500${poster_path}`
+        : `https://image.tmdb.org/t/p/original/yEvumAoCB9Z7o9dAzjxrjcwo2FQ.jpg`;
+      return `<li class="films__item" data-id=${id || `No ID`}>
                 <div class="films__img">
-                    <img src=https://image.tmdb.org/t/p/original${poster_path} alt="${title}" loading="lazy">
+                    <img src=https://image.tmdb.org/t/p/original${poster} alt="${
+        title || 'No title'
+      }" loading="lazy">
                 </div>
                 <div class="films__description">
-                  <p class="films__title">${title}</p>
+                  <p class="films__title">${title || 'No title'}</p>
                   <div class="films__meta">
-                    <span class="films__genres">${getGenres(
-                      genre_ids,
-                      3
-                    )}</span>
+                    <span class="films__genres">${
+                      getGenres(genre_ids, 3) || 'No genres info'
+                    }</span>
                     <span class="films__sep">|</span>
                     <span class="films__data">${
-                      release_date.slice(0, 4) || 'No info'
+                      new Date(release_date).getFullYear() || 'No info'
                     }</span>
                   </div>
                 </div>
@@ -54,17 +58,24 @@ export function getGenres(genre_ids, maxGenresShown) {
 export function renderFilmsLibrary(films) {
   films
     .map(({ poster_path, genre_ids, title, release_date, id }) => {
-      return `<li class="films__item" id=${id}>
+      const poster = poster_path
+        ? `https://image.tmdb.org/t/p/w500${poster_path}`
+        : `https://image.tmdb.org/t/p/original/yEvumAoCB9Z7o9dAzjxrjcwo2FQ.jpg`;
+      return `<li class="films__item" data-id=${id || `No ID`}>
                 <div class="films__img">
-                    <img src=https://image.tmdb.org/t/p/original${poster_path} alt="${title}" loading="lazy">
+                    <img src=https://image.tmdb.org/t/p/original${poster} alt="${
+        title || 'No title'
+      }" loading="lazy">
                 </div>
                 <div class="films__description">
-                  <p class="films__title">${title}</p>
+                  <p class="films__title">${title || 'No title'}</p>
                   <div class="films__meta">
-                    <span class="films__genres">${getGenres(genre_ids)}</span>
+                    <span class="films__genres">${
+                      getGenres(genre_ids, 3) || 'No genres info'
+                    }</span>
                     <span class="films__sep">|</span>
                     <span class="films__data">${
-                      release_date.slice(0, 4) || 'No year info'
+                      new Date(release_date).getFullYear() || 'No info'
                     }</span>
                   </div>
                 </div>

@@ -131,61 +131,74 @@ function getMoviesToLocalhost() {
 }
 getMoviesToLocalhost();
 
-function renderOneMovieForModal({
-  genre_ids,
-  poster_path,
-  original_title,
-  overview,
-  popularity,
-  title,
-  vote_average,
-  vote_count,
-}) {
-  movieDescription.innerHTML = '';
-  return (movieDescription.innerHTML = `
-  <div class="image__wrap">
-    <img class="image" src="https://image.tmdb.org/t/p/original${poster_path}" alt="${title}" />
-  </div>
-  <div class="description__wrap">
-    <h1 class="description__title">${title}</h1>
-    <table>
-      <tr class="table__wrap">
-        <td class="description__table">Vote / Votes</td>
-        <td class="description__table-result">
-          <span class="votes">${vote_average.toFixed(1)}</span> /${vote_count}
-        </td>
-      </tr>
-      <tr class="table__wrap">
-        <td class="description__table">Popularity</td>
-        <td class="description__table-result">${popularity.toFixed(1)}</td>
-      </tr>
-      <tr class="table__wrap">
-        <td class="description__table">Original Title</td>
-        <td class="description__table-result">${original_title}</td>
-      </tr>
+// function renderOneMovieForModal({
+//   genre_ids,
+//   poster_path,
+//   original_title,
+//   overview,
+//   popularity,
+//   title,
+//   vote_average,
+//   vote_count,
+// }) {
+//   movieDescription.innerHTML = '';
+//   const poster = poster_path
+//     ? `https://image.tmdb.org/t/p/original${poster_path}`
+//     : `https://image.tmdb.org/t/p/original/yEvumAoCB9Z7o9dAzjxrjcwo2FQ.jpg`;
+//   return (movieDescription.innerHTML = `
+//   <div class="image__wrap">
+//     <img class="image" src="https://image.tmdb.org/t/p/original${poster}" alt="${
+//     title || 'No title'
+//   }" />
+//   </div>
+//   <div class="description__wrap">
+//     <h1 class="description__title">${title || 'No title'}</h1>
+//     <table>
+//       <tr class="table__wrap">
+//         <td class="description__table">Vote / Votes</td>
+//         <td class="description__table-result">
+//           <span class="votes">${vote_average.toFixed(1) || 'No data'}</span> /${
+//     vote_count || 'No data'
+//   }
+//         </td>
+//       </tr>
+//       <tr class="table__wrap">
+//         <td class="description__table">Popularity</td>
+//         <td class="description__table-result">${
+//           popularity.toFixed(1) || 'No data'
+//         }</td>
+//       </tr>
+//       <tr class="table__wrap">
+//         <td class="description__table">Original Title</td>
+//         <td class="description__table-result">${
+//           original_title || 'No original title'
+//         }</td>
+//       </tr>
 
-      <tr class="table__wrap">
-        <td class="description__table">Genre</td>
-        <td class="description__table-result">${getGenres(genre_ids, 100)}</td>
-      </tr>
-    </table>
-    <p class="descrption__about">ABOUT</p>
-    <p class="description__text">
-     ${overview || 'There is no imformation about this movie'}
-    </p>
-    <ul class="btn__wrap">
-      <li>
-        <button class="btn btn__modal-add">add to Watched</button>
-        <button class="btn btn__modal-r-watched is-hidden">remove from Watched</button>
-      </li>
-      <li>
-        <button class="btn btn__modal-queue">add to queue</button>
-        <button class="btn btn__modal-r-queue is-hidden">remove from queue</button>
-      </li>
-    </ul>
-  </div>
-`);
-}
+//       <tr class="table__wrap">
+//         <td class="description__table">Genre</td>
+//         <td class="description__table-result">${
+//           getGenres(genre_ids, 100) || 'No genres info'
+//         }</td>
+//       </tr>
+//     </table>
+//     <p class="descrption__about">ABOUT</p>
+//     <p class="description__text">
+//      ${overview || 'There is no imformation about this movie'}
+//     </p>
+//     <ul class="btn__wrap">
+//       <li>
+//         <button class="btn btn__modal-add">add to Watched</button>
+//         <button class="btn btn__modal-r-watched is-hidden">remove from Watched</button>
+//       </li>
+//       <li>
+//         <button class="btn btn__modal-queue">add to queue</button>
+//         <button class="btn btn__modal-r-queue is-hidden">remove from queue</button>
+//       </li>
+//     </ul>
+//   </div>
+// `);
+// }
 
 //функціонал для ЛС
 function addToWatchedLS() {
