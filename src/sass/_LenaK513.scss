@@ -162,6 +162,11 @@ body.modal-open {
     margin-top: 20px;
   }
 
+  .description__text {
+    max-height: 50px;
+    overflow: auto;
+  }
+
   .description__table {
     width: 120px;
   }
@@ -204,12 +209,11 @@ body.modal-open {
 
   .modal__wrap {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-around;
   }
 
   .image__wrap {
     max-width: 264px;
-    margin-right: 50px;
   }
 
   .description__wrap {
@@ -229,7 +233,7 @@ body.modal-open {
   }
 
   .descrption__about {
-    margin-top: 20px;
+    margin-top: 10px;
     margin-bottom: 8px;
   }
 
