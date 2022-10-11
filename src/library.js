@@ -5,9 +5,6 @@ import FilmsStorage from './js/watched-queue';
 import { spinerClose, spinerOpen } from './js/spiner';
 import { getGenres } from './js/voprim';
 
-//
-window.addEventListener('load', spinerClose);
-//
 const storage = new FilmsStorage();
 const movieDescription = document.querySelector('.modal__wrap');
 refs.closeModalBtnForOneMovie.addEventListener('click', onCloseModal);
@@ -20,9 +17,9 @@ let removeFromWatchedBtn;
 let removeFromQueueBtn;
 let currentFilm = {};
 //
-
-renderFilmsLibrary(storage.getWathedFilmsList());
 spinerClose();
+renderFilmsLibrary(storage.getWathedFilmsList());
+
 const queueBtn = document.querySelector('.queue-button');
 const wachedBtn = document.querySelector('.watched-button');
 
@@ -32,7 +29,6 @@ wachedBtn.addEventListener('click', onWachedBtnClick);
 function onQueueBtnClick() {
   refs.libGallery.innerHTML = '';
   renderFilmsLibrary(storage.getQueueFilmsList());
-  spinerClose();
 
   wachedBtn.style.backgroundColor = 'transparent';
   wachedBtn.style.border = '1px solid white';
@@ -40,7 +36,6 @@ function onQueueBtnClick() {
 function onWachedBtnClick() {
   refs.libGallery.innerHTML = '';
   renderFilmsLibrary(storage.getWathedFilmsList());
-  spinerClose();
 
   wachedBtn.style.backgroundColor = '#ff6b08';
   wachedBtn.style.border = 'none';
@@ -95,7 +90,6 @@ function onOpenModal(e) {
 
   //
 
-  spinerClose();
   addToWatchedBtn = document.querySelector('.btn__modal-add');
 
   addToQueueBtn = document.querySelector('.btn__modal-queue');
