@@ -15,7 +15,6 @@ const warn = document.querySelector('.header-film__warning-msg');
 //   );
 //   return response.json();
 // }
-
 // Жанри(кінець);
 
 // setToLS_answer
@@ -26,6 +25,10 @@ function setToLocacStorageAnswer(answer) {
 function removeInLocalStorageCurrentFilms() {
   localStorage.removeItem('currentFilms');
 }
+
+// let totalPages = 0;
+// let firstBtnPag;
+// let lastBtnPag;
 
 // pag options
 
@@ -76,8 +79,20 @@ function createPagination() {
         })
         .catch(error => console.log(error));
     });
+      // firstBtnPag = document.querySelector('.tui-last');
+      // lastBtnPag = document.querySelector('.tui-first');
+      // onBtnDisabled();
   }
 }
+// window.addEventListener('load', onBtnDisabled);
+
+// function onBtnDisabled() {
+//   if (this.page = 1) {
+//     firstBtnPag.classList.add('is-hidden');
+//   } if (this.page = totalPages) {
+//     lastBtnPag.classList.add('is-hidden');
+//   };
+// }
 
 function onClickPageEvent(data) {
   renderFilmsMarkup(data);
@@ -150,6 +165,7 @@ function createPaginationOnRequest() {
       .catch(error => console.log(error));
   });
 }
+
 
 // function checkIncorrectQuery(data) {
 //   if (!data.length) {
