@@ -74,36 +74,30 @@ function createPagination() {
     pagination.on('beforeMove', function (eventData) {
       refs.gallery.innerHTML = '';
       spinerOpen();
+
       trendingMovies.setPage(eventData.page);
       trendingMovies
         .fetchTrendingMovies()
         .then(data => {
-          onClickPageEvent(data);
+          onClickPageEvent(
+            data,
+            eventData.page,
+            options.totalItems / options.itemsPerPage
+          );
           spinerClose();
         })
         .catch(error => console.log(error));
     });
-      // firstBtnPag = document.querySelector('.tui-last');
-      // lastBtnPag = document.querySelector('.tui-first');
-      // onBtnDisabled();
   }
 }
-// window.addEventListener('load', onBtnDisabled);
 
-// function onBtnDisabled() {
-//   if (this.page = 1) {
-//     firstBtnPag.classList.add('is-hidden');
-//   } if (this.page = totalPages) {
-//     lastBtnPag.classList.add('is-hidden');
-//   };
-// }
-
-function onClickPageEvent(data) {
+function onClickPageEvent(data, page, totalPages) {
   spinerOpen();
   renderFilmsMarkup(data);
   spinerClose();
   removeInLocalStorageCurrentFilms();
   setToLocacStorageAnswer(data);
+  chengeColorBtn(page, totalPages);
 
   window.scrollTo({
     top: 0,
@@ -170,7 +164,28 @@ function createPaginationOnRequest() {
 
         renderFilmsMarkup(data);
         spinerClose();
+        chengeColorBtn(
+          eventData.page,
+          options.totalItems / options.itemsPerPage
+        );
       })
       .catch(error => console.log(error));
   });
+}
+
+function chengeColorBtn(page, totalPages) {
+  if (page > 1) {
+    const firstPage = document.querySelector('.tui-first');
+
+    firstPage.classList.add('tui-when-other-page');
+
+    if (Math.ceil(totalPages) === page) {
+      const lastPage = document.querySelector('.tui-last');
+      lastPage.classList.add('tui-first');
+    }
+  }
+  if (page === 1) {
+    const firstPage = document.querySelector('.tui-first');
+    firstPage.classList.remove('tui-when-other-page');
+  }
 }
