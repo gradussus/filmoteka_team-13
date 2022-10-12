@@ -1,21 +1,9 @@
 // Footer modal
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-p {
-  margin: 0;
-}
-
 .footer-backdrop {
-  transition: opacity 450ms cubic-bezier(0.4, 0, 0.2, 1),
-  visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 3;
 
   position: fixed;
-  top: 0;
+  bottom: 0;
   left: 0;
 
   width: 100%;
@@ -32,6 +20,9 @@ p {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
+    position: absolute;
+    bottom: -2500;
+    left: -2500;
   }
 }
 
@@ -47,7 +38,7 @@ p {
   max-height: calc(100vh - 30px);
 
   background-color: #fff;
-  background-image: linear-gradient(135deg, rgb(11, 11, 11, 0.4), rgb(96, 5, 5, 0.4));
+  background-image: linear-gradient(135deg, rgba(125, 70, 7, 0.4), rgba(120, 64, 4, 0.411));
   box-shadow: 0px 8px 30px rgba(30, 16, 20, 0.1);
 
   overflow-y: auto;

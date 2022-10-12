@@ -142,31 +142,44 @@ function renderOneMovieForModal({
   vote_count,
 }) {
   movieDescription.innerHTML = '';
+  const poster = poster_path
+    ? `https://image.tmdb.org/t/p/w500${poster_path}`
+    : `https://image.tmdb.org/t/p/w500/yEvumAoCB9Z7o9dAzjxrjcwo2FQ.jpg`;
   return (movieDescription.innerHTML = `
   <div class="image__wrap">
-    <img class="image" src="https://image.tmdb.org/t/p/original${poster_path}" alt="${title}" />
+    <img class="image" src="https://image.tmdb.org/t/p/original${poster}" alt="${
+    title || 'No title'
+  }" />
   </div>
   <div class="description__wrap">
-    <h1 class="description__title">${title}</h1>
+    <h1 class="description__title">${title || 'No title'}</h1>
     <table>
       <tr class="table__wrap">
         <td class="description__table">Vote / Votes</td>
         <td class="description__table-result">
-          <span class="votes">${vote_average.toFixed(1)}</span> /${vote_count}
+          <span class="votes">${vote_average.toFixed(1) || 'No data'}</span> /${
+    vote_count || 'No data'
+  }
         </td>
       </tr>
       <tr class="table__wrap">
         <td class="description__table">Popularity</td>
-        <td class="description__table-result">${popularity.toFixed(1)}</td>
+        <td class="description__table-result">${
+          popularity.toFixed(1) || 'No data'
+        }</td>
       </tr>
       <tr class="table__wrap">
         <td class="description__table">Original Title</td>
-        <td class="description__table-result">${original_title}</td>
+        <td class="description__table-result">${
+          original_title || 'No original title'
+        }</td>
       </tr>
 
       <tr class="table__wrap">
         <td class="description__table">Genre</td>
-        <td class="description__table-result">${getGenres(genre_ids, 100)}</td>
+        <td class="description__table-result">${
+          getGenres(genre_ids, 100) || 'No genres info'
+        }</td>
       </tr>
     </table>
     <p class="descrption__about">ABOUT</p>
