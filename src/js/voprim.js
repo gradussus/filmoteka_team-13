@@ -52,16 +52,21 @@ export function getGenres(genre_ids, maxGenresShown) {
 }
 
 export function renderFilmsLibrary(films) {
-  films
-    .map(({ poster_path, genre_ids, title, release_date, id }) => {
-      const poster = poster_path
-        ? `https://image.tmdb.org/t/p/w500${poster_path}`
-        : `https://image.tmdb.org/t/p/w500/yEvumAoCB9Z7o9dAzjxrjcwo2FQ.jpg`;
-      return `<li class="films__item" data-id=${id || `No ID`}>
+  if (films) {
+    if (!films.length) {
+      setImgInLib();
+      return;
+    }
+    films
+      .map(({ poster_path, genre_ids, title, release_date, id }) => {
+        const poster = poster_path
+          ? `https://image.tmdb.org/t/p/w500${poster_path}`
+          : `https://image.tmdb.org/t/p/w500/yEvumAoCB9Z7o9dAzjxrjcwo2FQ.jpg`;
+        return `<li class="films__item" id=${id || `No ID`}>
                 <div class="films__img">
                     <img src=https://image.tmdb.org/t/p/original${poster} alt="${
-        title || 'No title'
-      }" loading="lazy">
+          title || 'No title'
+        }" loading="lazy">
                 </div>
                 <div class="films__description">
                   <p class="films__title">${title || 'No title'}</p>
@@ -78,8 +83,20 @@ export function renderFilmsLibrary(films) {
                   </div>
                 </div>
             </li>`;
-    })
-    .forEach(c => refs.libGallery.insertAdjacentHTML('beforeend', c));
+      })
+      .forEach(c => refs.libGallery.insertAdjacentHTML('beforeend', c));
+    return;
+  }
+  setImgInLib();
+}
+
+export function setImgInLib() {
+  const img = document.createElement('IMG');
+  img.src =
+    'https://pixabay.com/get/ge54d4ab7e47d1dcaa072c16cfc25f8a2bb8767deab654c65a06e780c723be590c8fbd2ff489664d51e29ce30406501db7d6e0da15783af39347f3587196c4e6d_1280.jpg';
+  img.alt = 'image';
+  img.width = '700';
+  refs.libGallery.append(img);
 }
 
 // функция отрисовки жанров
