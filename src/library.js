@@ -1,5 +1,5 @@
 // Федір, твори магію)
-
+import './js/NataliaDavydenko';
 import { refs } from './js/refs';
 import { renderFilmsLibrary } from './js/voprim';
 import FilmsStorage from './js/watched-queue';
