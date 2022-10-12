@@ -1,14 +1,19 @@
 // Федір, твори магію)
+
 import { refs } from './js/refs';
 import { renderFilmsLibrary } from './js/voprim';
 import FilmsStorage from './js/watched-queue';
 // import { spinerClose, spinerOpen } from './js/spiner';
 import { getGenres } from './js/voprim';
+import { Pagination } from 'tui-pagination';
+
+//
 
 const storage = new FilmsStorage();
 const movieDescription = document.querySelector('.modal__wrap');
 refs.closeModalBtnForOneMovie.addEventListener('click', onCloseModal);
 refs.libGallery.addEventListener('click', onOpenModal);
+
 //
 let addToWatchedBtn;
 
@@ -17,7 +22,7 @@ let removeFromWatchedBtn;
 let removeFromQueueBtn;
 let currentFilm = {};
 //
-// spinerClose();
+
 renderFilmsLibrary(storage.getWathedFilmsList());
 
 const queueBtn = document.querySelector('.queue-button');
@@ -30,15 +35,27 @@ function onQueueBtnClick() {
   refs.libGallery.innerHTML = '';
   renderFilmsLibrary(storage.getQueueFilmsList());
 
+  queueBtn.style.backgroundColor = '#ff6b01';
+  queueBtn.style.border = 'none';
   wachedBtn.style.backgroundColor = 'transparent';
   wachedBtn.style.border = '1px solid white';
+
+  wachedBtn.classList.remove('currentbtn');
+  queueBtn.classList.add('currentbtn');
 }
+// addToQueueBtn.classList.add('is-hidden');
+// removeFromQueueBtn.classList.remove('is-hidden');
 function onWachedBtnClick() {
   refs.libGallery.innerHTML = '';
   renderFilmsLibrary(storage.getWathedFilmsList());
 
-  wachedBtn.style.backgroundColor = '#ff6b08';
+  queueBtn.style.backgroundColor = 'transparent';
+  queueBtn.style.border = '1px solid white';
+  wachedBtn.style.backgroundColor = '#ff6b01';
   wachedBtn.style.border = 'none';
+
+  queueBtn.classList.remove('currentbtn');
+  wachedBtn.classList.add('currentbtn');
 }
 
 function onEscapeClick(event) {
@@ -91,10 +108,8 @@ function onOpenModal(e) {
   //
 
   addToWatchedBtn = document.querySelector('.btn__modal-add');
-
   addToQueueBtn = document.querySelector('.btn__modal-queue');
   removeFromQueueBtn = document.querySelector('.btn__modal-r-queue');
-
   removeFromWatchedBtn = document.querySelector('.btn__modal-r-watched');
 
   addToWatchedBtn.addEventListener('click', addToWatchedLS);
@@ -268,6 +283,8 @@ function addToWatchedLS() {
 
   refs.libGallery.innerHTML = '';
   renderFilmsLibrary(storage.getWathedFilmsList());
+
+  pagination();
 }
 
 function removeFromWatchedLS() {
@@ -275,7 +292,10 @@ function removeFromWatchedLS() {
   removeFromWatchedBtn.classList.add('is-hidden');
 
   storage.removeFromWatched(currentFilm);
-  removeFromDomElement(currentFilm);
+  if (checkCurrentPage(wachedBtn)) {
+    removeFromDomElement(currentFilm);
+  }
+  pagination();
 }
 // uquqee
 
@@ -287,6 +307,7 @@ function addToQueueLS() {
 
   refs.libGallery.innerHTML = '';
   renderFilmsLibrary(storage.getQueueFilmsList());
+  pagination();
 }
 
 function removeFromQueueLS() {
@@ -294,10 +315,20 @@ function removeFromQueueLS() {
   removeFromQueueBtn.classList.add('is-hidden');
 
   storage.removeFromQueue(currentFilm);
-  removeFromDomElement(currentFilm);
+
+  if (checkCurrentPage(queueBtn)) {
+    removeFromDomElement(currentFilm);
+  }
+  pagination();
 }
 
 function removeFromDomElement(objFilm) {
   const el = document.getElementById(objFilm.id);
   el.remove();
+}
+function checkCurrentPage(btn) {
+  if (btn.classList.contains('currentbtn')) {
+    return true;
+  }
+  return false;
 }

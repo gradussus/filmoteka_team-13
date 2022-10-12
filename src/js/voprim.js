@@ -70,9 +70,12 @@ export function renderFilmsLibrary(films) {
                 <div class="films__description">
                   <p class="films__title">${title || 'No title'}</p>
                   <div class="films__meta">
-                    <span class="films__genres">${
-                      getGenres(genre_ids, 3) || 'No genres info'
-                    }</span>
+
+                    <span class="films__genres">${getGenres(
+                      genre_ids,
+                      100
+                    )|| 'No genres info'}</span>
+
                     <span class="films__sep">|</span>
                     <span class="films__data">${
                       new Date(release_date).getFullYear() || 'No info'
