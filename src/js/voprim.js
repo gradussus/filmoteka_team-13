@@ -45,13 +45,9 @@ export function getGenres(genre_ids, maxGenresShown) {
       }
     }
   }
-  if (genresArr.length === 0) {
-    return 'No genres info';
-  }
   if (genre_ids.length > maxGenresShown) {
-    genresArr.push('Other');
+    genresArr.splice(maxGenresShown - 1, 1, 'Other');
   }
-
   return genresArr.join(', ');
 }
 
@@ -71,10 +67,9 @@ export function renderFilmsLibrary(films) {
                   <p class="films__title">${title || 'No title'}</p>
                   <div class="films__meta">
 
-                    <span class="films__genres">${getGenres(
-                      genre_ids,
-                      100
-                    )|| 'No genres info'}</span>
+                    <span class="films__genres">${
+                      getGenres(genre_ids, 100) || 'No genres info'
+                    }</span>
 
                     <span class="films__sep">|</span>
                     <span class="films__data">${
