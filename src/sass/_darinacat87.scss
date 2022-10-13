@@ -190,11 +190,13 @@
     line-height: 1.16;
 
     &__svg {
-
         margin-right: 7px;
 
         @media screen and (min-width: 1280px) {
             margin-right: 10px;
         }
+    }
+    &:hover > .header-lib-logo__svg {
+        animation: rotate-vert-center 500ms cubic-bezier(0.4, 0, 0.2, 1) 1;
     }
 }
