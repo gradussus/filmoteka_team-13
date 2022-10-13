@@ -94,7 +94,7 @@ export function setImgInLib() {
   const img = document.createElement('IMG');
   img.src =
     'https://pixabay.com/get/ge54d4ab7e47d1dcaa072c16cfc25f8a2bb8767deab654c65a06e780c723be590c8fbd2ff489664d51e29ce30406501db7d6e0da15783af39347f3587196c4e6d_1280.jpg';
-  img.alt = 'image';
+  img.alt = 'plug';
   img.width = '700';
   refs.libGallery.append(img);
 }
