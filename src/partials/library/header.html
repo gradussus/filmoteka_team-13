@@ -1,13 +1,14 @@
 <header class="header-library" id="header">
     <div class="container container-library">
+        <div class="header-library__wrap">
+        <a class="header-lib-logo" href="/src/index.html" target="_self">
+            <svg class="header-lib-logo__svg" width="24px" height="24px">
+                <use href="/src/images/header.svg#icon-film-logo"></use>
+            </svg>
+            <p class="header-logo__text">Filmoteka</p>
+        </a>
+
         <nav class="header-library__nav">
-            <a class="header-lib-logo" href="/src/index.html" target="_self">
-                <svg class="header-lib-logo__svg" width="24px" height="24px">
-                    <use href="/src/images/header.svg#icon-film-logo"></use>
-                </svg>
-                <p class="header-logo__text">Filmoteka</p>
-            </a>
-            <div class="pages-container">
                 <ul class="header-library__nav--list">
                     <li class="header-library__nav--item pages__home-btn header-film__uncurrent">
                         <a class="header-library__nav--link" href="/src/index.html" target="_self">Home</a>
@@ -16,9 +17,9 @@
                         <a class="header-library__nav--link" href="#" target="_self">My Library</a>
                     </li>
                 </ul>
-
-            </div>
         </nav>
+        </div>
+
         <ul class="header-library__hero--list">
             <li class="header-library__hero--item">
                 <button class="header-library__hero--button watched-button currentbtn">
