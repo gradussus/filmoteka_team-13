@@ -121,6 +121,14 @@ align-items: center;
     .header-film__navigation-item:nth-child(2){
       margin-right: 0;
     }
+
+ .header-film__navigation-link {
+   font-family: 'Roboto';
+   font-style: normal;
+   font-weight: 500;
+   font-size: 12px;
+   line-height: 14px;
+
     
   .header-film__uncurrent{
     position: relative;
@@ -157,6 +165,16 @@ align-items: center;
     color: var(--main-background-color);
     }
 
+
+   display: flex;
+   text-transform: uppercase;
+   color: var(--main-background-color);
+ }
+
+ .header-film__logo-link:hover>.header-film__logo-svg,
+ .header-film__logo-link:focus>.header-film__logo-svg {
+   animation: rotate-vert-center 500ms cubic-bezier(0.4, 0, 0.2, 1) 1;
+ }
 .main-current{
   position: relative;
   height: 100%;
