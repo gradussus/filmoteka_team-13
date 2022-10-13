@@ -9,6 +9,9 @@
   --accent-color-bright:#FF001B;
   --light-linear-gradient: linear-gradient(rgba(0, 0, 0, 0.56),
         rgba(0, 0, 0, 0.56));
+
+  --transition-timing-function: ease-in-out;
+  --transition-duration:250ms;       
 }
 
 html {
