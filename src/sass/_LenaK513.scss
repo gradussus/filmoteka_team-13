@@ -119,20 +119,18 @@ body.modal-open {
   color: #000;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   animation: rotate-vert-center 500ms cubic-bezier(0.4, 0, 0.2, 1) 1;
- 
-    &:hover,
-    &:focus {
-      background-color: #ff6b08;
-      color: #ffffff;
-      border: 1px solid #ff6b08;
-    }
 
-    &.is-hidden {
-      display: none;
-    }
+  &:hover,
+  &:focus {
+    background-color: #ff6b08;
+    color: #ffffff;
+    border: 1px solid #ff6b08;
+  }
+
+  &.is-hidden {
+    display: none;
+  }
 }
-
-
 .btn__modal-add,
 .btn__modal-r-watched {
   padding: 6px 10px;
@@ -145,12 +143,17 @@ body.modal-open {
 
 @media screen and (max-width: 767.98px) {
   .modal {
-    min-width: 280px;
+    width: 280px;
     padding: 48px 20px 40px 20px;
   }
 
   .description__table-result {
     text-align: start;
+  }
+
+  .image {
+    height: 340px;
+    object-fit: cover;
   }
 
   .descrption__about {
@@ -240,7 +243,6 @@ body.modal-open {
 
   .btn {
     width: 125px;
-    
   }
   .btn__wrap {
     margin-top: 20px;
@@ -297,5 +299,3 @@ body.modal-open {
     padding-right: 30px;
   }
 }
-
-
