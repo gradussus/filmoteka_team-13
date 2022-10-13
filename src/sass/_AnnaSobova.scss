@@ -121,12 +121,50 @@ align-items: center;
     .header-film__navigation-item:nth-child(2){
       margin-right: 0;
     }
+
  .header-film__navigation-link {
    font-family: 'Roboto';
    font-style: normal;
    font-weight: 500;
    font-size: 12px;
    line-height: 14px;
+
+    
+  .header-film__uncurrent{
+    position: relative;
+    height: 100%;
+    transition-property: color;
+    transition-duration: 250ms;
+    padding-bottom: 1px;
+    
+    &::after {
+        content: ' ';
+        position: absolute;
+        bottom: -1px;
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color:var(--accent-color-bright);
+        transform: scaleX(0);
+    }
+  }
+  .header-film__uncurrent:hover::after{
+      transform: scaleX(1);
+      transition: transform var(--transition-duration) var(--transition-timing-function);
+    }
+   
+ .header-film__navigation-link{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+
+    display: flex;
+    text-transform: uppercase;
+    color: var(--main-background-color);
+    }
+
 
    display: flex;
    text-transform: uppercase;
