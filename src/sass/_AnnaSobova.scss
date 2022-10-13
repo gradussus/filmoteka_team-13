@@ -46,14 +46,15 @@
 .header-film__container{ 
   flex-wrap: nowrap;
   justify-content: center;
-  padding-right: 32px;
-  padding-left: 32px;
+  padding-right: 20px;
+  padding-left: 20px;
   margin-left: auto;
   margin-right: auto;
 
     @media screen and (min-width: 768px){
-      padding-right: 20px;
-      padding-bottom: 20px;
+    padding-right: 32px;
+    padding-left: 32px;
+    padding-bottom: 20px;
     }
 }
 
@@ -82,7 +83,7 @@
   
   color: var(--main-background-color);
    
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 767.98px){
     display: none;
   }
 

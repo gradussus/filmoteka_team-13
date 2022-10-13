@@ -1,10 +1,6 @@
 .container-library {
     padding-top: 40px;
-    padding-bottom: 61px;
-
-    @media screen and (min-width: 768px) {
-        padding-bottom: 59px;
-    }
+    padding-bottom: 60px;
 }
 
 .header-library {
@@ -178,7 +174,7 @@
     font-size: 30px;
     line-height: 1.16;
 
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 767.98px) {
         display: none;
     }
 }
