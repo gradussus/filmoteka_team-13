@@ -131,6 +131,10 @@
 
 .developer__social {
   margin-right: 5px;
+  &:hover > .developer__social--Git,
+  &:focus > .developer__social--Git {
+    transform: scale(1.1);
+  }
 }
 
 .developer__social--Git{

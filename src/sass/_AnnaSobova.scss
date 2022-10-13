@@ -133,7 +133,8 @@ align-items: center;
    color: var(--main-background-color);
  }
 
- .header-film__logo-link:hover>.header-film__logo-svg {
+ .header-film__logo-link:hover>.header-film__logo-svg,
+ .header-film__logo-link:focus>.header-film__logo-svg {
    animation: rotate-vert-center 500ms cubic-bezier(0.4, 0, 0.2, 1) 1;
  }
 .main-current{
