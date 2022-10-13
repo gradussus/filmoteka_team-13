@@ -79,6 +79,11 @@ function findCurrentFilm(name) {
 // missclick
 function checkClick(e) {
   const element = e.target.nodeName;
+  const emptyIMG = e.target;
+  if (emptyIMG.getAttribute('alt') === 'plug') {
+    return false;
+  }
+
   if (
     element === 'DIV' ||
     element === 'IMG' ||
