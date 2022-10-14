@@ -4,6 +4,7 @@ import renderFilmsMarkup from './voprim';
 import { getGenres } from './voprim';
 import FilmsStorage from './watched-queue';
 import { spinerClose, spinerOpen } from './spiner';
+import { createTrailerLink } from './trailers';
 // import { onBackdropClick, onEscapeClick } from './Natali2721';
 // const refs = {
 //   closeModalBtnForOneMovie: document.querySelector('.modal__button'),
@@ -100,7 +101,9 @@ function onOpenModal(e) {
   removeFromWatchedBtn.addEventListener('click', removeFromWatchedLS);
   addToQueueBtn.addEventListener('click', addToQueueLS);
   removeFromQueueBtn.addEventListener('click', removeFromQueueLS);
-  //
+  // trailer
+  const trailerBtn = document.querySelector('.play-trailer');
+  trailerBtn.addEventListener('click', createTrailerLink);
 
   document.addEventListener('keydown', onEscapeClick);
   document.addEventListener('click', onBackdropClick);
@@ -140,6 +143,7 @@ function renderOneMovieForModal({
   title,
   vote_average,
   vote_count,
+  id,
 }) {
   movieDescription.innerHTML = '';
   const poster = poster_path
@@ -194,6 +198,9 @@ function renderOneMovieForModal({
       <li>
         <button class="btn btn__modal-queue">add to queue</button>
         <button class="btn btn__modal-r-queue is-hidden">remove from queue</button>
+      </li>
+      <li>
+        <button class="btn play-trailer" id="${id}">Watch Trailer</button>
       </li>
     </ul>
   </div>
