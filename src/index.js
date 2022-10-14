@@ -1,7 +1,5 @@
 import './js/key.js';
 import './js/refs';
-import './js/Alexandr';
-import './js/AnnaSobova';
 import './js/darinacat87';
 import './js/Ghozzty';
 import './js/LenaK513';
