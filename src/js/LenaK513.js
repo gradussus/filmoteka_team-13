@@ -61,11 +61,12 @@ function findCurrentFilm(id) {
 function checkClick(e) {
   const element = e.target.nodeName;
   if (
-    element === 'IMG'
-    // element === 'DIV' ||
-    // element === 'IMG' ||
-    // element === 'P' ||
-    // element === 'SPAN'
+    // element === 'IMG'
+    element === 'DIV' ||
+    element === 'IMG' ||
+    element === 'P' ||
+    element === 'SPAN' ||
+    element === 'DIV'
   ) {
     return true;
   }
