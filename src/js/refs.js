@@ -15,6 +15,7 @@ const refs = {
   btnRemoveFromWatched: document.querySelector('.btn__modal-r-watched'),
   btnAddToQuene: document.querySelector('.btn__modal-queue'),
   btnRemoveFromQuene: document.querySelector('.btn__modal-r-queue'),
+  trailerBackdrop: document.querySelector('.js-backdrop-trailer'),
 };
 
 export { refs };
