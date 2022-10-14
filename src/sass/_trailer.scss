@@ -1,0 +1,40 @@
+.modal__trailer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+@media screen and (max-width: 767.98px) {
+    .modal__trailer {
+        width: 280px;
+        padding: 48px 20px 40px 20px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .modal__trailer {
+        width: 704px;
+        height: 552px;
+        padding: 40px 24px;
+    }
+    
+    .modal__wrap--trailer {
+        display: flex;
+        justify-content: space-around;
+    }
+}
+
+@media screen and(min-width:1280px) {
+    .modal__trailer {
+        max-width: 806px;
+        padding: 40px 12px;
+    }
+
+    .modal__wrap--trailer {
+        justify-content: center;
+        height: 480px;
+    }
+}
