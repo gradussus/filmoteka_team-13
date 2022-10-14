@@ -21,7 +21,7 @@ let removeFromWatchedBtn;
 let removeFromQueueBtn;
 let currentFilm = {};
 //
-
+// console.log(storage.getWathedFilmsList());
 renderFilmsLibrary(storage.getWathedFilmsList());
 
 const queueBtn = document.querySelector('.queue-button');
@@ -71,9 +71,16 @@ function onBackdropClick(event) {
 }
 
 // findFilmFunc
-function findCurrentFilm(name) {
-  const filmsSet = getMoviesToLocalhost();
-  currentFilm = filmsSet.find(option => option.title === name);
+function findCurrentFilm(id) {
+  let filmsSet = [];
+  if (wachedBtn.classList.contains('currentbtn')) {
+    filmsSet = JSON.parse(localStorage.getItem('watched-films'));
+  }
+  if (queueBtn.classList.contains('currentbtn')) {
+    filmsSet = JSON.parse(localStorage.getItem('queue-films'));
+  }
+
+  currentFilm = filmsSet.find(film => film.id === id);
   return currentFilm;
 }
 // missclick
@@ -85,10 +92,11 @@ function checkClick(e) {
   }
 
   if (
-    element === 'DIV' ||
-    element === 'IMG' ||
-    element === 'P' ||
-    element === 'SPAN'
+    element === 'IMG'
+    // element === 'DIV' ||
+    // element === 'IMG' ||
+    // element === 'P' ||
+    // element === 'SPAN'
   ) {
     return true;
   }
@@ -103,8 +111,9 @@ function onOpenModal(e) {
   refs.backdropOneMovie.classList.remove('is-hidden');
   document.body.classList.add('modal-open');
 
-  const nameFilm = e.target.alt;
-  const curentObject = findCurrentFilm(nameFilm);
+  const idFilm = Number(e.target.id);
+
+  const curentObject = findCurrentFilm(idFilm);
 
   renderOneMovieForModal(curentObject);
 
@@ -141,11 +150,6 @@ function onCloseModal() {
   document.removeEventListener('keydown', onEscapeClick);
   document.removeEventListener('click', onBackdropClick);
 }
-
-function getMoviesToLocalhost() {
-  return JSON.parse(localStorage.getItem('currentFilms'));
-}
-getMoviesToLocalhost();
 
 function renderOneMovieForModal({
   genre_ids,

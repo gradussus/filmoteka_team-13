@@ -12,7 +12,7 @@ export function renderFilmsMarkup(films) {
                 <div class="films__img">
                     <img src=https://image.tmdb.org/t/p/original${poster} alt="${
         title || 'No title'
-      }" loading="lazy">
+      }" loading="lazy" id=${id}>
                 </div>
                 <div class="films__description">
                   <p class="films__title">${title || 'No title'}</p>
@@ -66,7 +66,7 @@ export function renderFilmsLibrary(films) {
                 <div class="films__img">
                     <img src=https://image.tmdb.org/t/p/original${poster} alt="${
           title || 'No title'
-        }" loading="lazy">
+        }" loading="lazy" id=${id}>
                 </div>
                 <div class="films__description">
                   <p class="films__title">${title || 'No title'}</p>
@@ -93,9 +93,10 @@ export function renderFilmsLibrary(films) {
 export function setImgInLib() {
   const img = document.createElement('IMG');
   img.src =
-    'https://pixabay.com/get/ge54d4ab7e47d1dcaa072c16cfc25f8a2bb8767deab654c65a06e780c723be590c8fbd2ff489664d51e29ce30406501db7d6e0da15783af39347f3587196c4e6d_1280.jpg';
+    'https://pixabay.com/get/gefdffe0e3a111a2d5c539dc6a08c82b4b787e4962786126035071f95a2a5c46d2ebf8f194c8663dc4a63fb2935acb30d52287b634ea8567d22c059278eaa580d_1280.jpg';
   img.alt = 'plug';
   img.width = '700';
+  // img.style.marginTop = '30px';
   refs.libGallery.append(img);
 }
 

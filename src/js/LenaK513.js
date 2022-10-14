@@ -14,7 +14,6 @@ import { spinerClose, spinerOpen } from './spiner';
 const movieDescription = document.querySelector('.modal__wrap');
 refs.closeModalBtnForOneMovie.addEventListener('click', onCloseModal);
 refs.gallery.addEventListener('click', onOpenModal);
-
 let addToWatchedBtn;
 
 let addToQueueBtn;
@@ -22,6 +21,7 @@ let removeFromWatchedBtn;
 let removeFromQueueBtn;
 let currentFilm = {};
 const storage = new FilmsStorage();
+//
 
 // lib
 // addToWatchedBtn = document.querySelector('.btn__modal-add');
@@ -44,18 +44,15 @@ function onEscapeClick(event) {
 // document.addEventListener('click', onBackdropClick);
 
 function onBackdropClick(event) {
-  //console.log('event');
-  //console.log(event);
   if (event.target == refs.backdropOneMovie) {
     refs.backdropOneMovie.classList.add('is-hidden');
     document.body.classList.remove('modal-open');
-    // document.removeEventListener('click', onBackdropClick);
   }
 }
 // findFilmFunc
-function findCurrentFilm(name) {
+function findCurrentFilm(id) {
   const filmsSet = getMoviesToLocalhost();
-  currentFilm = filmsSet.find(option => option.title === name);
+  currentFilm = filmsSet.find(film => film.id === id);
   return currentFilm;
 }
 //
@@ -63,10 +60,11 @@ function findCurrentFilm(name) {
 function checkClick(e) {
   const element = e.target.nodeName;
   if (
-    element === 'DIV' ||
-    element === 'IMG' ||
-    element === 'P' ||
-    element === 'SPAN'
+    element === 'IMG'
+    // element === 'DIV' ||
+    // element === 'IMG' ||
+    // element === 'P' ||
+    // element === 'SPAN'
   ) {
     return true;
   }
@@ -81,7 +79,8 @@ function onOpenModal(e) {
   refs.backdropOneMovie.classList.remove('is-hidden');
   document.body.classList.add('modal-open');
 
-  const nameFilm = e.target.alt;
+  const nameFilm = Number(e.target.id);
+
   const curentObject = findCurrentFilm(nameFilm);
 
   renderOneMovieForModal(curentObject);
@@ -202,9 +201,7 @@ function renderOneMovieForModal({
 
 //функціонал для ЛС
 function addToWatchedLS() {
-  // const storage = new FilmsStorage();
   storage.refreshData();
-  //console.log(storage._watchedFilmsList);
 
   storage.addToWatchedFilms(currentFilm);
   storage.saveWatchedFilms();
@@ -216,11 +213,6 @@ function addToWatchedLS() {
 }
 
 function addToQueueLS() {
-  // const storage = new FilmsStorage();
-  // storage.refreshDataQueue();
-
-  // storage.addToQueueFilms(currentFilm);
-  // storage.saveQueueFilms();
   storage.myAddToQueueFilms(currentFilm);
 
   addToQueueBtn.classList.add('is-hidden');
@@ -240,5 +232,3 @@ function removeFromQueueLS() {
 
   storage.removeFromQueue(currentFilm);
 }
-
-// function checkFilmInLocStor(film) {}
