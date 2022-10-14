@@ -55,7 +55,7 @@ function onBackdropClick(event) {
 // findFilmFunc
 function findCurrentFilm(name) {
   const filmsSet = getMoviesToLocalhost();
-  currentFilm = filmsSet.find(option => option.original_title === name);
+  currentFilm = filmsSet.find(option => option.title === name);
   return currentFilm;
 }
 //
