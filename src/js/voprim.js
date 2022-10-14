@@ -62,7 +62,7 @@ export function renderFilmsLibrary(films) {
         const poster = poster_path
           ? `https://image.tmdb.org/t/p/w500${poster_path}`
           : `https://image.tmdb.org/t/p/w500/yEvumAoCB9Z7o9dAzjxrjcwo2FQ.jpg`;
-        return `<li class="films__item" data-id=${id || `No ID`}>
+        return `<li class="films__item" id=${id || `No ID`}>
                 <div class="films__img">
                     <img src=https://image.tmdb.org/t/p/original${poster} alt="${
           title || 'No title'
