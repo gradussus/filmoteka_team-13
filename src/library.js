@@ -160,6 +160,7 @@ function renderOneMovieForModal({
   title,
   vote_average,
   vote_count,
+  id,
 }) {
   movieDescription.innerHTML = '';
   const poster = poster_path
@@ -216,6 +217,9 @@ function renderOneMovieForModal({
         <button class="btn btn__modal-r-queue is-hidden">remove from queue</button>
       </li>
     </ul>
+    <div class="btn__wrap">
+    <button class="btn play-trailer" id="${id}">Watch Trailer</button>
+    </div>
   </div>
 `);
 }
