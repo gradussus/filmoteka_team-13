@@ -198,10 +198,11 @@ function renderOneMovieForModal({
         <button class="btn btn__modal-queue">add to queue</button>
         <button class="btn btn__modal-r-queue is-hidden">remove from queue</button>
       </li>
-      <li>
-        <button class="btn play-trailer" id="${id}">Watch Trailer</button>
-      </li>
+    
     </ul>
+    <div class="btn__wrap">
+    <button class="btn play-trailer" id="${id}">Watch Trailer</button>
+    </div>
   </div>
 `);
 }

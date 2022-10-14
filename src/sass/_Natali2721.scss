@@ -289,3 +289,12 @@ footer {
         display: none;
     }
 }
+
+.btn.play-trailer {
+    background-color: tomato;
+    color: #ffffff;
+    border-color: transparent;
+}
+.btn.play-trailer:hover {
+    background-color: red;
+}
