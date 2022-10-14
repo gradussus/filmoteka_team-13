@@ -20,8 +20,7 @@ let addToQueueBtn;
 let removeFromWatchedBtn;
 let removeFromQueueBtn;
 let currentFilm = {};
-//
-// console.log(storage.getWathedFilmsList());
+
 renderFilmsLibrary(storage.getWathedFilmsList());
 
 const queueBtn = document.querySelector('.queue-button');
@@ -92,11 +91,10 @@ function checkClick(e) {
   }
 
   if (
-    element === 'IMG'
-    // element === 'DIV' ||
-    // element === 'IMG' ||
-    // element === 'P' ||
-    // element === 'SPAN'
+    element === 'DIV' ||
+    element === 'IMG' ||
+    element === 'P' ||
+    element === 'SPAN'
   ) {
     return true;
   }
