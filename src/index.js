@@ -1,11 +1,10 @@
 import './js/key.js';
 import './js/refs';
-import './js/darinacat87';
-import './js/Ghozzty';
-import './js/LenaK513';
-import './js/MykolaPom';
-import './js/NataliaDavydenko';
-import './js/voprim';
+import './js/startPagStorage';
+import './js/searchAndModalActions';
+import './js/fetchAPI';
+import './js/onClickBtnActions';
+import './js/renderMarkup';
 import './js/spiner';
 import './js/scrollBtn';
 import './js/watched-queue';
