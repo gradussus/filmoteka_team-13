@@ -58,24 +58,10 @@
   }
   
   .tui-first{
-    color: #d3cece;
-    &:hover{
-      color: rgb(211, 206, 206);
-      background-color: white;
-    } 
-  }
-  // .tui-last{
-  //   color: #d3cece;
-  //   &:hover{
-  //     color: rgb(211, 206, 206);
-  //     background-color: white;
-  //   }
-  // }
-.tui-when-other-page{
-  color: black;
-  &:hover{
-    background-color: #FF6B08;
-    color: white;
+  
+    visibility:hidden; 
   }
 
-}
+  .tui-last{
+    visibility: visible;
+  }
