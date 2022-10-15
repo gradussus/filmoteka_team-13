@@ -1,6 +1,6 @@
 <header class="header" id="header">
   <label class="switch">
-    <input class="checkbox" type="checkbox" />
+    <input aria-label="Change theme" class="checkbox" type="checkbox" />
     <span class="slider round"></span>
   </label>
   <div class="header-film__container container">
@@ -45,7 +45,11 @@
           class="header-film__input"
           autofocus
         />
-        <button type="submit" class="header__form-search">
+        <button
+          aria-label="Search film"
+          type="submit"
+          class="header__form-search"
+        >
           <svg class="header__search-icon" width="17" height="17">
             <use href="/src/images/search2.svg#icon-search"></use>
           </svg>
