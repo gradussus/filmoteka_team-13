@@ -1,10 +1,10 @@
 // Федір, твори магію)
-import './js/NataliaDavydenko';
+import './js/onClickBtnActions';
 import { refs } from './js/refs';
-import { renderFilmsLibrary } from './js/voprim';
+import { renderFilmsLibrary } from './js/renderMarkup';
 import FilmsStorage from './js/watched-queue';
-import { getGenres } from './js/voprim';
-import { setImgInLib } from './js/voprim';
+import { getGenres } from './js/renderMarkup';
+import { setImgInLib } from './js/renderMarkup';
 
 //
 
