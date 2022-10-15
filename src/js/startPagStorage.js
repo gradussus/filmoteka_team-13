@@ -7,7 +7,6 @@ import { loadTheme } from './theme';
 
 const trendingMovies = new TrendingMovies();
 const warn = document.querySelector('.header-film__warning-msg');
-let globalInputValue = '';
 
 // setToLS_answer
 
@@ -97,7 +96,7 @@ function onClickPageEvent(data, page, totalPages) {
   spinerClose();
   removeInLocalStorageCurrentFilms();
   setToLocacStorageAnswer(data);
-  chengeColorBtn(page, totalPages);
+  firstAndLastbtnHidden(page, totalPages);
 
   window.scrollTo({
     top: 0,
@@ -130,7 +129,7 @@ function onSubmitEvent(e) {
         spinerClose();
         return;
       }
-      globalInputValue = inputValue;
+      refs.globalInputValue = inputValue;
       warn.classList.add('visually-hidden');
       refs.gallery.innerHTML = '';
 
@@ -152,10 +151,8 @@ function createPaginationOnRequest() {
   pagination.on('beforeMove', function (eventData) {
     refs.gallery.innerHTML = '';
 
-    // const inputValue = refs.form.firstElementChild.value;
-
     trendingMovies.setPage(eventData.page);
-    trendingMovies.setQuery(globalInputValue);
+    trendingMovies.setQuery(refs.globalInputValue);
     spinerOpen();
     trendingMovies
       .fetchMovie()
@@ -165,7 +162,7 @@ function createPaginationOnRequest() {
 
         renderFilmsMarkup(data);
         spinerClose();
-        chengeColorBtn(
+        firstAndLastbtnHidden(
           eventData.page,
           options.totalItems / options.itemsPerPage
         );
@@ -174,19 +171,17 @@ function createPaginationOnRequest() {
   });
 }
 
-function chengeColorBtn(page, totalPages) {
-  if (page > 1) {
-    const firstPage = document.querySelector('.tui-first');
-
-    firstPage.classList.add('tui-when-other-page');
-
-    if (Math.ceil(totalPages) === page) {
-      const lastPage = document.querySelector('.tui-last');
-      lastPage.classList.add('tui-first');
-    }
+function firstAndLastbtnHidden(page, totalPages) {
+  const firstPage = document.querySelector('.tui-first');
+  const lastPage = document.querySelector('.tui-last');
+  if (page > 3 || page < 0) {
+    firstPage.style.visibility = 'visible';
+  } else {
+    firstPage.style.visibility = 'hidden';
   }
-  if (page === 1) {
-    const firstPage = document.querySelector('.tui-first');
-    firstPage.classList.remove('tui-when-other-page');
+  if (page > Math.ceil(totalPages) - 3) {
+    lastPage.style.visibility = 'hidden';
+  } else {
+    lastPage.style.visibility = 'visible';
   }
 }
