@@ -222,7 +222,7 @@ body.modal-open {
     max-width: 264px;
   }
   .description__text {
-    height: 128px;
+    max-height: 128px;
     overflow: auto;
   }
   .description__title {
