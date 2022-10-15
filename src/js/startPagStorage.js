@@ -174,7 +174,7 @@ function createPaginationOnRequest() {
 function firstAndLastbtnHidden(page, totalPages) {
   const firstPage = document.querySelector('.tui-first');
   const lastPage = document.querySelector('.tui-last');
-  if (page > 3 || page < 0) {
+  if (page > 3) {
     firstPage.style.visibility = 'visible';
   } else {
     firstPage.style.visibility = 'hidden';

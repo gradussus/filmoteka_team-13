@@ -1,6 +1,5 @@
 import { refs } from './refs';
 import { loadTheme } from './theme';
-// import TrendingMovies from './MykolaPom';
 
 // функция отрисовки топ фильмов
 export function renderFilmsMarkup(films) {
@@ -91,13 +90,12 @@ export function renderFilmsLibrary(films) {
 }
 
 export function setImgInLib() {
-  const img = document.createElement('IMG');
-  img.src =
-    'https://pixabay.com/get/gefdffe0e3a111a2d5c539dc6a08c82b4b787e4962786126035071f95a2a5c46d2ebf8f194c8663dc4a63fb2935acb30d52287b634ea8567d22c059278eaa580d_1280.jpg';
-  img.alt = 'plug';
-  img.width = '700';
-  // img.style.marginTop = '30px';
-  refs.libGallery.append(img);
+  const imagePlug = document.getElementById('plug');
+  imagePlug.classList.remove('visually-hidden');
+}
+export function removeImgInLib() {
+  const imagePlug = document.getElementById('plug');
+  imagePlug.classList.add('visually-hidden');
 }
 
 // функция отрисовки жанров
