@@ -4,7 +4,7 @@ import { refs } from './js/refs';
 import { renderFilmsLibrary } from './js/renderMarkup';
 import FilmsStorage from './js/watched-queue';
 import { getGenres } from './js/renderMarkup';
-import { setImgInLib } from './js/renderMarkup';
+import { setImgInLib, removeImgInLib } from './js/renderMarkup';
 import { createTrailerLink } from './js/trailers';
 //
 
@@ -40,8 +40,18 @@ function onQueueBtnClick() {
 
   wachedBtn.classList.remove('currentbtn');
   queueBtn.classList.add('currentbtn');
+  // console.log(storage.getQueueFilmsList().length || undefined);
+  if (queueBtn.classList.contains('currentbtn')) {
+    if (
+      storage.getQueueFilmsList() === undefined ||
+      !storage.getQueueFilmsList().length
+    ) {
+      setImgInLib();
+    } else {
+      removeImgInLib();
+    }
+  }
 }
-
 function onWachedBtnClick() {
   refs.libGallery.innerHTML = '';
   renderFilmsLibrary(storage.getWathedFilmsList());
@@ -53,6 +63,17 @@ function onWachedBtnClick() {
 
   queueBtn.classList.remove('currentbtn');
   wachedBtn.classList.add('currentbtn');
+  // console.log(storage.getWathedFilmsList().length || undefined);
+  if (wachedBtn.classList.contains('currentbtn')) {
+    if (
+      storage.getWathedFilmsList() === undefined ||
+      !storage.getWathedFilmsList().length
+    ) {
+      setImgInLib();
+    } else {
+      removeImgInLib();
+    }
+  }
 }
 
 function onEscapeClick(event) {
