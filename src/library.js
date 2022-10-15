@@ -40,7 +40,7 @@ function onQueueBtnClick() {
 
   wachedBtn.classList.remove('currentbtn');
   queueBtn.classList.add('currentbtn');
-  // console.log(storage.getQueueFilmsList().length || undefined);
+
   if (queueBtn.classList.contains('currentbtn')) {
     if (
       storage.getQueueFilmsList() === undefined ||
@@ -63,7 +63,7 @@ function onWachedBtnClick() {
 
   queueBtn.classList.remove('currentbtn');
   wachedBtn.classList.add('currentbtn');
-  // console.log(storage.getWathedFilmsList().length || undefined);
+
   if (wachedBtn.classList.contains('currentbtn')) {
     if (
       storage.getWathedFilmsList() === undefined ||
