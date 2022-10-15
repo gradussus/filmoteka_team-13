@@ -44,6 +44,7 @@ let options = {
 };
 
 function createStartList() {
+  loadTheme();
   trendingMovies.fetchGenres().then(({ genres }) => {
     const arr = [...genres];
     localStorage.setItem('genres', JSON.stringify(arr));
