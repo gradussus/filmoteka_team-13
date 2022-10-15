@@ -7,6 +7,7 @@ import { loadTheme } from './theme';
 
 const trendingMovies = new TrendingMovies();
 const warn = document.querySelector('.header-film__warning-msg');
+let globalInputValue = '';
 
 // setToLS_answer
 
@@ -67,7 +68,7 @@ function createStartList() {
 createStartList();
 
 function createPagination() {
-  if (refs.gallery.childElementCount > 10) {
+  if (refs.gallery.childElementCount > 18) {
     const pagination = new Pagination(refs.container, options);
 
     pagination.on('beforeMove', function (eventData) {
@@ -129,6 +130,7 @@ function onSubmitEvent(e) {
         spinerClose();
         return;
       }
+      globalInputValue = inputValue;
       warn.classList.add('visually-hidden');
       refs.gallery.innerHTML = '';
 
@@ -150,10 +152,10 @@ function createPaginationOnRequest() {
   pagination.on('beforeMove', function (eventData) {
     refs.gallery.innerHTML = '';
 
-    const inputValue = refs.form.firstElementChild.value;
+    // const inputValue = refs.form.firstElementChild.value;
 
     trendingMovies.setPage(eventData.page);
-    trendingMovies.setQuery(inputValue);
+    trendingMovies.setQuery(globalInputValue);
     spinerOpen();
     trendingMovies
       .fetchMovie()
