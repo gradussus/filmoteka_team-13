@@ -1,17 +1,21 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
 :root {
-  --accent-color: #ff6b08;
+  --accent-color: #c24e00;
+  // --accent-color: #ff6b08;
   --main-cubic: cubic-bezier(0.4, 0, 0.2, 1);
   --secondary-text-color: #ffffff;
   --main-background-color: #ffffff;
-  --third-text-color: #ff6b01;
-  --accent-color-bright:#FF001B;
-  --light-linear-gradient: linear-gradient(rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56));
+  --third-text-color: #c24e00;
+  // --third-text-color: #ff6b01;
+  --accent-color-bright: #ff001b;
+  --light-linear-gradient: linear-gradient(
+    rgba(0, 0, 0, 0.56),
+    rgba(0, 0, 0, 0.56)
+  );
 
   --transition-timing-function: ease-in-out;
-  --transition-duration:250ms;       
+  --transition-duration: 250ms;
 }
 
 html {
