@@ -33,6 +33,11 @@ body.modal-open {
   border-radius: 4px;
 }
 
+.modal__wrap {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
 .modal__button {
   display: flex;
   align-items: center;
@@ -91,11 +96,6 @@ body.modal-open {
 
 .description__table {
   color: #8c8c8c;
-}
-
-.description__text {
-  max-height: 178px;
-  overflow: auto;
 }
 
 .btn__wrap {
@@ -167,10 +167,10 @@ body.modal-open {
     margin-top: 20px;
   }
 
-  .description__text {
-    max-height: 50px;
-    overflow: auto;
-  }
+  // .description__text {
+  //   max-height: 50px;
+  //   overflow: auto;
+  // }
 
   .description__table {
     width: 120px;
@@ -285,6 +285,11 @@ body.modal-open {
   .description__wrap {
     max-width: 50%;
     margin-left: 8px;
+  }
+
+  .description__text {
+    max-height: 178px;
+    overflow: auto;
   }
 
   .btn {
