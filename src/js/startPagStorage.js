@@ -3,6 +3,7 @@ import TrendingMovies from './fetchAPI';
 import { renderFilmsMarkup } from './renderMarkup';
 import { refs } from './refs';
 import { spinerClose, spinerOpen } from './spiner';
+import { loadTheme } from './theme';
 
 const trendingMovies = new TrendingMovies();
 const warn = document.querySelector('.header-film__warning-msg');
@@ -19,7 +20,17 @@ function removeInLocalStorageCurrentFilms() {
 // let totalPages = 0;
 // let firstBtnPag;
 // let lastBtnPag;
-
+// function loadTheme() {
+//   checkBox.checked = JSON.parse(localStorage.getItem('dark-theme'));
+//   if (checkBox.checked) {
+//     document.querySelector('main').style.backgroundColor = '272e34';
+//     console.log(checkBox.checked);
+//   }
+//   if (!checkBox.checked) {
+//     document.querySelector('main').style.backgroundColor = 'fff';
+//     console.log(checkBox.checked);
+//   }
+// }
 // pag options
 
 let options = {
@@ -32,9 +43,8 @@ let options = {
   lastItemClassName: 'tui-last-child',
 };
 
-// startList
-
 function createStartList() {
+  loadTheme();
   trendingMovies.fetchGenres().then(({ genres }) => {
     const arr = [...genres];
     localStorage.setItem('genres', JSON.stringify(arr));
@@ -50,6 +60,7 @@ function createStartList() {
       //localStor
       setToLocacStorageAnswer(data);
     })
+
     .catch(error => console.log(error));
 }
 

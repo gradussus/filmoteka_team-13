@@ -1,4 +1,5 @@
 import { refs } from './refs';
+import { loadTheme } from './theme';
 // import TrendingMovies from './MykolaPom';
 
 // функция отрисовки топ фильмов
@@ -52,6 +53,7 @@ export function getGenres(genre_ids, maxGenresShown) {
 }
 
 export function renderFilmsLibrary(films) {
+  loadTheme();
   if (films) {
     if (!films.length) {
       setImgInLib();

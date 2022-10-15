@@ -16,6 +16,8 @@ const refs = {
   btnAddToQuene: document.querySelector('.btn__modal-queue'),
   btnRemoveFromQuene: document.querySelector('.btn__modal-r-queue'),
   trailerBackdrop: document.querySelector('.js-backdrop-trailer'),
+  checkBox: document.querySelector('.checkbox'),
+  main: document.querySelector('main'),
 };
 
 export { refs };
