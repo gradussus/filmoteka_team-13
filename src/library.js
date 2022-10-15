@@ -5,7 +5,7 @@ import { renderFilmsLibrary } from './js/renderMarkup';
 import FilmsStorage from './js/watched-queue';
 import { getGenres } from './js/renderMarkup';
 import { setImgInLib } from './js/renderMarkup';
-
+import { createTrailerLink } from './js/trailers';
 //
 
 const storage = new FilmsStorage();
@@ -126,7 +126,9 @@ function onOpenModal(e) {
   removeFromWatchedBtn.addEventListener('click', removeFromWatchedLS);
   addToQueueBtn.addEventListener('click', addToQueueLS);
   removeFromQueueBtn.addEventListener('click', removeFromQueueLS);
-  //
+  // trailer
+  const trailerBtn = document.querySelector('.play-trailer');
+  trailerBtn.addEventListener('click', createTrailerLink);
 
   document.addEventListener('keydown', onEscapeClick);
   document.addEventListener('click', onBackdropClick);
