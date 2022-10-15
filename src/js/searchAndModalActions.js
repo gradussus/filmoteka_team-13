@@ -188,7 +188,7 @@ function renderOneMovieForModal({
     </table>
     <p class="descrption__about">ABOUT</p>
     <p class="description__text">
-     ${overview || 'There is no imformation about this movie'}
+     ${overview || 'There is no information about this movie'}
     </p>
     <ul class="btn__wrap">
       <li>
