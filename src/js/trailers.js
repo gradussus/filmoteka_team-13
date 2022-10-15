@@ -21,11 +21,6 @@ async function getTrailers(id) {
   }
   //throw new Error('Ошибка! Нет трейлера к этому фильму!');
 }
-/*
-function Error(message) {
-  this.message = message;
-  this.name = 'Исключение, определённое пользователем';
-}*/
 
 export async function createTrailerLink() {
   const id = document.querySelector('.play-trailer').id;
@@ -35,12 +30,6 @@ export async function createTrailerLink() {
   if (fetchResult.results.length === 0) {
     console.log('Нет в БД трейлера к этому фильму. Нам очень жаль.');
 
-    /* //если нет в БД трейлера к данному фильму
-    refs.trailerBackdrop.insertAdjacentHTML(
-      'afterbegin',
-      '<div class=""></div>'
-    );
-      */
     return;
   }
 
@@ -52,6 +41,11 @@ export async function createTrailerLink() {
       height: '360',
       width: '640',
       videoId: videoIdKey,
+      playerVars: {
+        autoplay: 1,
+        controls: 1,
+        rel: 0,
+      },
       events: {
         onReady: onPlayerReady,
         onStateChange: onPlayerStateChange,
@@ -64,9 +58,12 @@ export async function createTrailerLink() {
 refs.trailerBackdrop.addEventListener('click', e => {
   e.currentTarget.classList.toggle('is-hidden');
   refs.trailerBackdrop.innerHTML = '';
-  refs.trailerBackdrop.innerHTML = '<div id="player"></div>';
+  refs.trailerBackdrop.innerHTML =
+    '<div class="modal__trailer" id="player"></div>';
   stopVideo();
 });
+
+//refs.trailerBackdrop.addEventListener('keydown', onEscapeClickTrailer);
 
 function onPlayerReady(event) {
   event.target.playVideo();
@@ -76,4 +73,15 @@ function onPlayerStateChange(event) {}
 
 function stopVideo() {
   player.stopVideo();
+}
+
+function onEscapeClickTrailer(event) {
+  event.stopImmediatePropagation();
+  if (event.code == 'Escape') {
+    refs.trailerBackdrop.classList.toggle('is-hidden');
+    refs.trailerBackdrop.innerHTML = '';
+    refs.trailerBackdrop.innerHTML =
+      '<div class="modal__trailer" id="player"></div>';
+    stopVideo();
+  }
 }
