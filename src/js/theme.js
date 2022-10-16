@@ -10,10 +10,20 @@ function saveTheme() {
   if (refs.checkBox.checked) {
     refs.main.style.backgroundColor = '#272e34';
     refs.modalForOneMovie.style.backgroundColor = '#272e34';
+    refs.footer.style.backgroundColor = 'rgb(89, 84, 84)';
+    refs.footerText.classList.add('dark');
+    refs.footerTextBtn.classList.add('dark');
+    refs.footerTextP.classList.add('dark');
+    refs.footerTextPP.classList.add('dark');
   }
   if (!refs.checkBox.checked) {
     refs.main.style.backgroundColor = '#fff';
     refs.modalForOneMovie.style.backgroundColor = '#fff';
+    refs.footer.style.backgroundColor = 'rgb(247, 247, 247)';
+    refs.footerText.classList.remove('dark');
+    refs.footerTextBtn.classList.remove('dark');
+    refs.footerTextP.classList.remove('dark');
+    refs.footerTextPP.classList.remove('dark');
   }
 }
 export function loadTheme() {
@@ -21,9 +31,19 @@ export function loadTheme() {
   if (refs.checkBox.checked) {
     refs.main.style.backgroundColor = '#272e34';
     refs.modalForOneMovie.style.backgroundColor = '#272e34';
+    refs.footer.style.backgroundColor = 'rgb(89, 84, 84)';
+    refs.footerText.classList.add('dark');
+    refs.footerTextBtn.classList.add('dark');
+    refs.footerTextP.classList.add('dark');
+    refs.footerTextPP.classList.add('dark');
   }
   if (!refs.checkBox.checked) {
     refs.main.style.backgroundColor = '#fff';
     refs.modalForOneMovie.style.backgroundColor = '#fff';
+    refs.footer.style.backgroundColor = 'rgb(247, 247, 247)';
+    refs.footerText.classList.remove('dark');
+    refs.footerTextBtn.classList.remove('dark');
+    refs.footerTextP.classList.remove('dark');
+    refs.footerTextPP.classList.remove('dark');
   }
 }
