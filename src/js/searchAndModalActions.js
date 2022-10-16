@@ -11,7 +11,7 @@ import { createTrailerLink } from './trailers';
 //   modalForOneMovie: document.querySelector('.modal'),
 //   backdropOneMovie: document.querySelector('.backdrop__movie'),
 // };
-
+const btnScroll = document.querySelector('.scroll-btn');
 const movieDescription = document.querySelector('.modal__wrap');
 refs.closeModalBtnForOneMovie.addEventListener('click', onCloseModal);
 refs.gallery.addEventListener('click', onOpenModal);
@@ -77,6 +77,7 @@ function onOpenModal(e) {
   if (!checkClick(e)) {
     return;
   }
+  btnScroll.style.display = 'none';
 
   refs.backdropOneMovie.classList.remove('is-hidden');
   document.body.classList.add('modal-open');

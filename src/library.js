@@ -1,4 +1,5 @@
 // Федір, твори магію)
+import './js/scrollBtn';
 import './js/onClickBtnActions';
 import { refs } from './js/refs';
 import { renderFilmsLibrary } from './js/renderMarkup';
@@ -126,7 +127,7 @@ function onOpenModal(e) {
   if (!checkClick(e)) {
     return;
   }
-
+  refs.btnScroll.style.display = 'none';
   refs.backdropOneMovie.classList.remove('is-hidden');
   document.body.classList.add('modal-open');
 

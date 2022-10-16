@@ -23,6 +23,7 @@ const refs = {
   footerTextP: document.querySelector('.footer__txt-p'),
   footerTextBtn: document.querySelector('.footer__txt-btn'),
   footerTextPP: document.querySelector('.footer__txt-p-p'),
+  btnScroll: document.querySelector('.scroll-btn'),
   globalInputValue: '',
 };
 
