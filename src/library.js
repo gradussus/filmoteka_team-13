@@ -41,16 +41,7 @@ function onQueueBtnClick() {
   wachedBtn.classList.remove('currentbtn');
   queueBtn.classList.add('currentbtn');
 
-  if (queueBtn.classList.contains('currentbtn')) {
-    if (
-      storage.getQueueFilmsList() === undefined ||
-      !storage.getQueueFilmsList().length
-    ) {
-      setImgInLib();
-    } else {
-      removeImgInLib();
-    }
-  }
+  setRemoveQueuePlug();
 }
 function onWachedBtnClick() {
   refs.libGallery.innerHTML = '';
@@ -64,16 +55,7 @@ function onWachedBtnClick() {
   queueBtn.classList.remove('currentbtn');
   wachedBtn.classList.add('currentbtn');
 
-  if (wachedBtn.classList.contains('currentbtn')) {
-    if (
-      storage.getWathedFilmsList() === undefined ||
-      !storage.getWathedFilmsList().length
-    ) {
-      setImgInLib();
-    } else {
-      removeImgInLib();
-    }
-  }
+  setRemoveWatchedPlug();
 }
 
 function onEscapeClick(event) {
@@ -263,6 +245,8 @@ function addToWatchedLS() {
     }
     addToDOMelement();
   }
+  setRemoveQueuePlug();
+  setRemoveWatchedPlug();
 }
 
 function removeFromWatchedLS() {
@@ -277,6 +261,8 @@ function removeFromWatchedLS() {
   if (storage.getWathedFilmsList().length === 0) {
     setImgInLib();
   }
+  setRemoveQueuePlug();
+  setRemoveWatchedPlug();
 }
 // uquqee
 
@@ -292,6 +278,8 @@ function addToQueueLS() {
     }
     addToDOMelement();
   }
+  setRemoveQueuePlug();
+  setRemoveWatchedPlug();
 }
 
 function removeFromQueueLS() {
@@ -306,6 +294,8 @@ function removeFromQueueLS() {
   if (storage.getQueueFilmsList().length === 0) {
     setImgInLib();
   }
+  setRemoveQueuePlug();
+  setRemoveWatchedPlug();
 }
 
 function removeFromDomElement() {
@@ -314,4 +304,29 @@ function removeFromDomElement() {
 }
 function addToDOMelement() {
   renderFilmsLibrary([currentFilm]);
+}
+
+function setRemoveWatchedPlug() {
+  if (wachedBtn.classList.contains('currentbtn')) {
+    if (
+      storage.getWathedFilmsList() === undefined ||
+      !storage.getWathedFilmsList().length
+    ) {
+      setImgInLib();
+    } else {
+      removeImgInLib();
+    }
+  }
+}
+function setRemoveQueuePlug() {
+  if (queueBtn.classList.contains('currentbtn')) {
+    if (
+      storage.getQueueFilmsList() === undefined ||
+      !storage.getQueueFilmsList().length
+    ) {
+      setImgInLib();
+    } else {
+      removeImgInLib();
+    }
+  }
 }
