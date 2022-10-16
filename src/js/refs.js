@@ -18,6 +18,12 @@ const refs = {
   trailerBackdrop: document.querySelector('.js-backdrop-trailer'),
   checkBox: document.querySelector('.checkbox'),
   main: document.querySelector('main'),
+  footer: document.querySelector('footer'),
+  footerText: document.querySelector('.footer__txt'),
+  footerTextP: document.querySelector('.footer__txt-p'),
+  footerTextBtn: document.querySelector('.footer__txt-btn'),
+  footerTextPP: document.querySelector('.footer__txt-p-p'),
+  btnScroll: document.querySelector('.scroll-btn'),
   globalInputValue: '',
 };
 

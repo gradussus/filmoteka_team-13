@@ -2,10 +2,12 @@ const refs = {
   modal: document.querySelector('[data-modal-footer]'),
   closeBtn: document.querySelector('.footer-modal__closeBtn'),
   openFooterModalBtn: document.querySelector('.js-team'),
+  btnScroll: document.querySelector('.scroll-btn'),
 };
 
 refs.openFooterModalBtn.addEventListener('click', e => {
   e.preventDefault();
+  refs.btnScroll.style.display = 'none';
   refs.modal.classList.remove('is-hidden');
   document.addEventListener('keydown', onEscapeClick);
   document.addEventListener('click', onBackdropClick);
