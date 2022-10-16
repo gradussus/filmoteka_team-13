@@ -37,6 +37,18 @@
     background: #FF6B08;
     }
   }
+  .tui-dark {
+    color: #fff;
+     &:hover{
+  
+      border-radius: 5px;
+      color: #fff;
+    
+    background: #FF6B08;
+    }
+  
+  }
+
   
   .tui-pagination .tui-is-selected, .tui-pagination strong {
     color: #fff;
