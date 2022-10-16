@@ -97,36 +97,3 @@ export function removeImgInLib() {
   const imagePlug = document.getElementById('plug');
   imagePlug.classList.add('visually-hidden');
 }
-
-// функция отрисовки жанров
-
-// export function renderGenres(renderGenresFilms) {
-//   let genreString;
-//   renderGenresFilms.map(film => {
-//     const filmGenres = film.genre_ids;
-//     let array = [];
-
-//     //console.log('filmGenres', filmGenres);
-//     filmGenres.map(genre => {
-//       const filmGenre = localStorage.getItem(genre);
-//       array.push(filmGenre);
-//       genreString = array.join(', ');
-//     });
-//   });
-//   //refs.galleryGenreItem.textContent = 777;
-//   return genreString;
-// }
-
-// // Функция записи жанров в локалсторедж
-// export async function getGenres() {
-//   const trendingMovies = new TrendingMovies();
-//   try {
-//     const result = await trendingMovies.fetchGenresIds();
-//     for (const genre of result) {
-//       localStorage.setItem(`${genre.id}`, `${genre.name}`);
-//     }
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
-// lib-gallery-render-func

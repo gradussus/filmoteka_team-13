@@ -14,7 +14,7 @@
 
   visibility: visible;
   transition: visibility 450ms cubic-bezier(0.4, 0, 0.2, 1),
-  opacity 450ms cubic-bezier(0.4, 0, 0.2, 1);
+    opacity 450ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &.is-hidden {
     opacity: 0;
@@ -38,7 +38,11 @@
   max-height: calc(100vh - 30px);
 
   background-color: #fff;
-  background-image: linear-gradient(135deg, rgba(125, 70, 7, 0.4), rgba(120, 64, 4, 0.411));
+  background-image: linear-gradient(
+    135deg,
+    rgba(125, 70, 7, 0.4),
+    rgba(120, 64, 4, 0.411)
+  );
   box-shadow: 0px 8px 30px rgba(30, 16, 20, 0.1);
 
   overflow-y: auto;
@@ -61,9 +65,9 @@
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
-  &:focus{
-  fill: #ff6b01;
-  transform: scale(1.1);
+  &:focus {
+    fill: #ff6b01;
+    transform: scale(1.1);
   }
 }
 
@@ -78,9 +82,9 @@
   text-align: center;
   margin-bottom: 20px;
 
-    @media screen and (min-width: 768px) {
-        font-size: 35px;
-}
+  @media screen and (min-width: 768px) {
+    font-size: 35px;
+  }
 }
 
 .developer__list {
@@ -139,11 +143,11 @@
   }
 }
 
-.developer__social--Git{
-@media screen and (min-width: 1200px) {
+.developer__social--Git {
+  @media screen and (min-width: 1200px) {
     width: 30px;
     height: 30px;
-}
+  }
 }
 
 .developer__name {
@@ -159,4 +163,10 @@
 
 .developer__description {
   font-size: 12px;
+}
+
+// Observer
+
+.forObserver {
+  display: none;
 }

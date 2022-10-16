@@ -9,3 +9,4 @@ import './js/spiner';
 import './js/scrollBtn';
 import './js/watched-queue';
 import './js/theme';
+import './js/newPagination';

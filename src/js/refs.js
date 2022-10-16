@@ -25,6 +25,8 @@ const refs = {
   footerTextPP: document.querySelector('.footer__txt-p-p'),
   btnScroll: document.querySelector('.scroll-btn'),
   globalInputValue: '',
+  pgg: document.querySelector('.pgg'),
+  forObserver: document.querySelector('.forObserver'),
 };
 
 export { refs };
