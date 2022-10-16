@@ -69,7 +69,7 @@ createStartList();
 function createPagination() {
   if (refs.gallery.childElementCount > 18) {
     const pagination = new Pagination(refs.container, options);
-
+    setPagColor();
     pagination.on('beforeMove', function (eventData) {
       refs.gallery.innerHTML = '';
       spinerOpen();
@@ -97,7 +97,7 @@ function onClickPageEvent(data, page, totalPages) {
   removeInLocalStorageCurrentFilms();
   setToLocacStorageAnswer(data);
   firstAndLastbtnHidden(page, totalPages);
-
+  setPagColor();
   window.scrollTo({
     top: 0,
     behavior: 'smooth',
@@ -147,7 +147,7 @@ function onSubmitEvent(e) {
 
 function createPaginationOnRequest() {
   const pagination = new Pagination(refs.container, options);
-
+  setPagColor();
   pagination.on('beforeMove', function (eventData) {
     refs.gallery.innerHTML = '';
 
@@ -162,6 +162,7 @@ function createPaginationOnRequest() {
 
         renderFilmsMarkup(data);
         spinerClose();
+        setPagColor();
         firstAndLastbtnHidden(
           eventData.page,
           options.totalItems / options.itemsPerPage
@@ -183,5 +184,15 @@ function firstAndLastbtnHidden(page, totalPages) {
     lastPage.style.visibility = 'hidden';
   } else {
     lastPage.style.visibility = 'visible';
+  }
+}
+function setPagColor() {
+  if (refs.checkBox.checked) {
+    const pagBtns = document.querySelectorAll('.tui-page-btn');
+    pagBtns.forEach(el => el.classList.add('tui-dark'));
+  }
+  if (!refs.checkBox.checked) {
+    const pagBtns = document.querySelectorAll('.tui-page-btn');
+    pagBtns.forEach(el => el.classList.remove('tui-dark'));
   }
 }

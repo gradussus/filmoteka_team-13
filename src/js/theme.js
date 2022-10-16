@@ -6,6 +6,7 @@ import { refs } from './refs';
 refs.checkBox.addEventListener('click', saveTheme);
 
 function saveTheme() {
+  setPagColor();
   localStorage.setItem('dark-theme', JSON.stringify(refs.checkBox.checked));
   if (refs.checkBox.checked) {
     refs.main.style.backgroundColor = '#272e34';
@@ -45,5 +46,16 @@ export function loadTheme() {
     refs.footerTextBtn.classList.remove('dark');
     refs.footerTextP.classList.remove('dark');
     refs.footerTextPP.classList.remove('dark');
+  }
+}
+
+function setPagColor() {
+  if (refs.checkBox.checked) {
+    const pagBtns = document.querySelectorAll('.tui-page-btn');
+    pagBtns.forEach(el => el.classList.add('tui-dark'));
+  }
+  if (!refs.checkBox.checked) {
+    const pagBtns = document.querySelectorAll('.tui-page-btn');
+    pagBtns.forEach(el => el.classList.remove('tui-dark'));
   }
 }
