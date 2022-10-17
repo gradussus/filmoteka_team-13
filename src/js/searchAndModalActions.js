@@ -135,6 +135,17 @@ function getMoviesToLocalhost() {
 }
 getMoviesToLocalhost();
 
+function fetchTrailers(id) {
+  return fetch(
+    `https://api.themoviedb.org/3/movie/${id}/videos?api_key=5d44c33850258a6ea050e461474b1468&language=en-US`
+  ).then(responce => {
+    if (!responce.ok) {
+      throw new Error(responce.status);
+    }
+    return responce.json();
+  });
+}
+
 function renderOneMovieForModal({
   genre_ids,
   poster_path,
@@ -145,7 +156,19 @@ function renderOneMovieForModal({
   vote_average,
   vote_count,
   id,
-}) {
+})
+{
+
+  fetchTrailers(id).then(data => 
+  {
+    if (data.results.length === 0) {
+      document.querySelector('.play-trailer').textContent = 'Sorry, no trailer'
+      document.querySelector('.play-trailer').disabled = true
+      document.querySelector('.play-trailer').style.backgroundColor = 'transparent'
+      document.querySelector('.play-trailer').style.color = 'grey'
+      document.querySelector('.play-trailer').style.cursor = 'auto'
+    }}
+  )
   movieDescription.innerHTML = '';
   const poster = poster_path
     ? `https://image.tmdb.org/t/p/w400${poster_path}`
