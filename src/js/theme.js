@@ -3,7 +3,7 @@ import { refs } from './refs';
 // const checkBox = document.querySelector('.checkbox');
 // console.log(checkBox);
 
-refs.checkBox.addEventListener('click', saveTheme);
+refs.checkBox.addEventListener('input', saveTheme);
 
 function saveTheme() {
   setPagColor();
