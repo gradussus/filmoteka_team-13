@@ -30,7 +30,7 @@ export function renderFilmsMarkup(films) {
     })
     .forEach(c => refs.gallery.insertAdjacentHTML('beforeend', c));
 }
-export async function getGenres(genre_ids, maxGenresShown) {
+export function getGenres(genre_ids, maxGenresShown) {
   const genres = JSON.parse(localStorage.getItem('genres'));
   const genresArr = [];
 
